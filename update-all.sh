@@ -1,3 +1,4 @@
 #!/bin/bash/
-cp vimrc1 ~/.vimrc
-cp xmonad.hs1 ~/.xmonad/xmonad.hs
+cp ycm_extra_conf.py ~/.ycm_extra_conf.py
+cp vimrc ~/.vimrc
+cp xmonad.hs ~/.xmonad/xmonad.hs
