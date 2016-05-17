@@ -31,6 +31,7 @@ syntax on
  set guioptions-=r
  set background=dark
  nnoremap gp `[v`]
+set clipboard=unnamed "set the default clipboard being system
  set foldmethod=syntax
  set nofoldenable
  set relativenumber
