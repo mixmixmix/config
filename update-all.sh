@@ -4,3 +4,4 @@ cp vimrc ~/.vimrc
 cp xmonad.hs ~/.xmonad/xmonad.hs
 cp spacemacs ~/.spacemacs
 cp zshrc ~/.zshrc
+cp tmux.conf ~/.tmux.conf
