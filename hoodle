@@ -1,0 +1,6 @@
+
+#config file for hoodle 
+stylus="Wacom Co.,Ltd. Pen and multitouch sensor Pen stylus"
+eraser="Wacom Co.,Ltd. Pen and multitouch sensor Pen eraser"
+touch="Wacom Co.,Ltd. Pen and multitouch sensor Finger"
+xinput = "true"
