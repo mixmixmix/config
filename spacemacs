@@ -34,7 +34,9 @@ values."
      yaml
      (shell :variables shell-default-shell 'ansi-term)
      latex
+     javascript
      ;; vim-powerline
+     ;; python
      latex
      org
      xkcd
@@ -218,7 +220,7 @@ values."
    ;; If non nil line numbers are turned on in all `prog-mode' and `text-mode'
    ;; derivatives. If set to `relative', also turns on relative line numbers.
    ;; (default nil)
-   dotspacemacs-line-numbers relative
+   dotspacemacs-line-numbers 'relative
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
    dotspacemacs-smartparens-strict-mode nil
