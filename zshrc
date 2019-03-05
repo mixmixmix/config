@@ -2,13 +2,17 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/mix/.oh-my-zsh
+  export ZSH=/Users/mix/.oh-my-zsh
+
+#Object detection in TF:
+  export PYTHONPATH=$PYTHONPATH:/Users/mix/repos/models/research:/Users/mix/repos/models/research/slim
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
-
+ZSH_THEME="bureau"
+SAVEHIST=10000
+HISTSIZE=10000
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -51,7 +55,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -83,3 +87,16 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 alias dragon=~/.dragon.sh
+alias euclid35="ssh -X 2412135k@euclid-35.maths.gla.ac.uk"
+alias euclid33="ssh -X 2412135k@euclid-33.maths.gla.ac.uk"
+alias maths="ssh -X 2412135k@ssh.maths-stats.gla.ac.uk"
+alias alpha="ssh -X -p '51' 'pi@192.168.1.36'"
+alias beta="ssh -X -p '52' 'pi@192.168.1.36'"
+alias gamma="ssh -X -p '53' 'pi@192.168.1.36'"
+alias delta="ssh -X -p '54' 'pi@192.168.1.36'"
+# added by Anaconda3 4.3.0 installer
+export PATH="/Users/mix/anaconda3/bin:$PATH"
+export PATH="$HOME/Library/Haskell/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+export PATH="/usr/local/opt/tcl-tk/bin:$PATH"
