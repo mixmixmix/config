@@ -41,10 +41,20 @@
   # Set your time zone.
   time.timeZone = "Europe/London";
 
+  services.redshift = {
+    enable = true;
+    latitude = "55.8536";
+    longitude = "-4.2786";
+    temperature.night = 4000;
+  };
+
+
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
 	#(import /etc/nixos/emacs.nix)
+	redshift
 	oh-my-zsh
 	dropbox dropbox-cli
 	bitwarden-cli
@@ -78,6 +88,9 @@
 	dmenu
 	xmobar	
 	pciutils
+	evince
+	thunderbird
+	libreoffice
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
