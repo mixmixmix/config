@@ -13,22 +13,19 @@
     ];
 
   # Use the GRUB 2 boot loader.
-  boot.loader.grub.enable = false;
-  #boot.loader.grub.device = "/dev/nvme0n1";
-  #boot.loader.grub.version = 2;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.version = 2;
   # boot.loader.grub.efiSupport = true;
   # boot.loader.grub.efiInstallAsRemovable = true;
   # boot.loader.efi.efiSysMountPoint = "/boot/efi";
   # Define on which hard drive you want to install Grub.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.resumeDevice = "/dev/nvme0n1p1";
+  boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
+  boot.resumeDevice = "/dev/sda2";
   # TODO implement better energy saving ?
   #boot.extraModulePackages = with config.boot.kernelPackages;[acpi-call tp-smapi];
 
-  networking.hostName = "badger"; # Define your hostname.
+  networking.hostName = "raccoon"; # Define your hostname.
   networking.networkmanager.enable = true;  # Enables wireless support via wpa_supplicant.
-  services.chrony.enable = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -44,10 +41,20 @@
   # Set your time zone.
   time.timeZone = "Europe/London";
 
-  # List packages installed in system profile. To search, run: $ nix search
-  # wget
+  services.redshift = {
+    enable = true;
+    latitude = "55.8536";
+    longitude = "-4.2786";
+    temperature.night = 4000;
+  };
+
+
+
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
   environment.systemPackages = with pkgs; [
 	#(import /etc/nixos/emacs.nix)
+	redshift
 	oh-my-zsh
 	dropbox dropbox-cli
 	bitwarden-cli
@@ -78,17 +85,12 @@
 	cmatrix
 	monero monero-gui
 	openvpn
-	#xmonad nad other geeks
-	xmobar
 	dmenu
-	# obvious and basic like lspci
+	xmobar	
 	pciutils
-	chrony
-	#GPU fun
-	unigine-valley
-	glmark2
-	mesa
-	freeglut
+	evince
+	thunderbird
+	libreoffice
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -100,11 +102,6 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  hardware.nvidia.optimus_prime.enable = true;
-  hardware.nvidia.optimus_prime.nvidiaBusId = "PCI:1:0:0";
-  hardware.nvidia.optimus_prime.intelBusId = "PCI:0:2:0";
-  hardware.opengl.enable = true;
-
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 22 ];
@@ -124,16 +121,16 @@
   		layout = "gb";
   		xkbOptions = "caps:escape";
   		displayManager.sddm.enable = true;
-		videoDrivers = ["nvidia"];
+
   # Enable touchpad support.
-		libinput.enable = true;
+                   libinput.enable = true;
 	desktopManager = {
 	default = "xfce";
 	xterm.enable = false;
 	xfce = {
 		enable = true;
-		noDesktop = false;
-		enableXfwm = true;
+		noDesktop = true;
+		enableXfwm = false;
 		};
 	};
 
@@ -175,12 +172,13 @@ programs.zsh.enable = true;
   services.cron = {
     enable = true;
     systemCronJobs = [
+      "*/10 * * * *      root    . /etc/profile; bash /root/read_batt.sh"
       "*/10 * * * *      mix    . /etc/profile; bash /home/mix/repos/organutan/pushme.sh >> /home/mix/repos/organutan/autopush.log"
     ];
   };
 
   swapDevices = [
-    { device = "/dev/nvme0n1p2";
+    { device = "/dev/sda2";
     }
   ];
 
@@ -218,7 +216,5 @@ programs.zsh.interactiveShellInit = ''
 '';
 
 programs.zsh.promptInit = ""; # Clear this to avoid a conflict with oh-my-zsh
-
-
 
 }
