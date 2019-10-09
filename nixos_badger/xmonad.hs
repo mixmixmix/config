@@ -1,6 +1,5 @@
 import XMonad
 import XMonad.Wallpaper
-import XMonad.Config.Xfce
 import XMonad.Hooks.DynamicLog
 
 
