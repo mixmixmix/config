@@ -74,7 +74,10 @@
 	chrony pmutils
 	geteltorito
 	arp-scan
+	#life
 	cutegram
+	thunderbird
+	#
 	cmatrix
 	monero monero-gui
 	openvpn
@@ -84,6 +87,8 @@
 	# obvious and basic like lspci
 	pciutils
 	chrony
+	gparted
+	ntfs3g
 	#GPU fun
 	unigine-valley
 	glmark2
@@ -91,6 +96,8 @@
 	freeglut
   	#dev etc:
   	conda
+        glib
+	emacs
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -177,7 +184,8 @@ programs.zsh.enable = true;
   services.cron = {
     enable = true;
     systemCronJobs = [
-      "*/10 * * * *      mix    . /etc/profile; bash /home/mix/repos/organutan/pushme.sh >> /home/mix/repos/organutan/autopush.log"
+      "*/10 * * * *      mix    . /etc/profile; bash /home/mix/repos/organutan/pushme_badger.sh >> /home/mix/repos/organutan/autopush.log"
+      "*/5 * * * *      root    date >> /tmp/cron.log"
     ];
   };
 
