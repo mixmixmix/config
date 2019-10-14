@@ -74,9 +74,16 @@
 	chrony pmutils
 	geteltorito
 	arp-scan
+	#FJELLTOPP
+	docker
+	docker-compose
+	#python2
+	awscli
 	#life
 	cutegram
 	thunderbird
+	discord
+	steam
 	#
 	cmatrix
 	monero monero-gui
@@ -165,13 +172,14 @@
 	};
  };
 
-programs.zsh.enable = true;
+	programs.zsh.enable = true;
+	virtualisation.docker.enable = true;
   #
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.mix = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "sudo" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "sudo" "networkmanager" "docker"]; # Enable ‘sudo’ for the user.
   };
 
   # This value determines the NixOS release with which your system is to be
