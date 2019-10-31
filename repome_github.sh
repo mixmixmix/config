@@ -9,5 +9,7 @@ git clone git@github.com:mixmixmix/config.git
 git clone git@github.com:mixmixmix/moreyfirth.git
 git clone git@github.com:mixmixmix/parrtraks.git
 git clone git@github.com:mixmixmix/thesis.git
+git clone git@github.com:mixmixmix/moovemoo.git
+
 
 
