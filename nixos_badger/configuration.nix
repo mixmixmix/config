@@ -74,7 +74,17 @@
 	chrony pmutils
 	geteltorito
 	arp-scan
+	#FJELLTOPP
+	docker
+	docker-compose
+	#python2
+	awscli
+	#life
 	cutegram
+	thunderbird
+	discord
+	steam
+	#
 	cmatrix
 	monero monero-gui
 	openvpn
@@ -84,6 +94,8 @@
 	# obvious and basic like lspci
 	pciutils
 	chrony
+	gparted
+	ntfs3g
 	#GPU fun
 	unigine-valley
 	glmark2
@@ -91,6 +103,8 @@
 	freeglut
   	#dev etc:
   	conda
+        glib
+	emacs
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -158,13 +172,14 @@
 	};
  };
 
-programs.zsh.enable = true;
+	programs.zsh.enable = true;
+	virtualisation.docker.enable = true;
   #
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.mix = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "sudo" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "sudo" "networkmanager" "docker"]; # Enable ‘sudo’ for the user.
   };
 
   # This value determines the NixOS release with which your system is to be
@@ -177,7 +192,8 @@ programs.zsh.enable = true;
   services.cron = {
     enable = true;
     systemCronJobs = [
-      "*/10 * * * *      mix    . /etc/profile; bash /home/mix/repos/organutan/pushme.sh >> /home/mix/repos/organutan/autopush.log"
+      "*/10 * * * *      mix    . /etc/profile; bash /home/mix/repos/organutan/pushme_badger.sh >> /home/mix/repos/organutan/autopush.log"
+      "*/5 * * * *      root    date >> /tmp/cron.log"
     ];
   };
 
