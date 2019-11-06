@@ -91,6 +91,14 @@
 	evince
 	thunderbird
 	libreoffice
+	conda
+	#util
+	autofs5 #automount kernel
+	afuse #automount user space
+	#FUN FUN FUN
+	fortune
+	cowsay
+	lolcat
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -213,6 +221,7 @@ programs.zsh.interactiveShellInit = ''
 
   source $ZSH/oh-my-zsh.sh
   alias euclid35="ssh -X 2412135k@euclid-35.maths.gla.ac.uk"
+  alias dragon="~/repos/config/dragon.sh"
 '';
 
 programs.zsh.promptInit = ""; # Clear this to avoid a conflict with oh-my-zsh
