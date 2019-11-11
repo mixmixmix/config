@@ -23,6 +23,8 @@
   boot.resumeDevice = "/dev/sda2";
   # TODO implement better energy saving ?
   #boot.extraModulePackages = with config.boot.kernelPackages;[acpi-call tp-smapi];
+  boot.initrd.kernelModules = ["acpi" "thinkpad-acpi" "acpi-call" "tp-smapi"];
+  boot.extraModulePackages = with config.boot.kernelPackages; [ acpi_call tp_smapi];
 
   networking.hostName = "raccoon"; # Define your hostname.
   networking.networkmanager.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -81,7 +83,6 @@
 	chrony pmutils
 	geteltorito
 	arp-scan
-	cutegram
 	cmatrix
 	monero monero-gui
 	openvpn
@@ -92,6 +93,7 @@
 	thunderbird
 	libreoffice
 	conda
+	jetbrains.pycharm-community
 	#util
 	autofs5 #automount kernel
 	afuse #automount user space
@@ -110,6 +112,7 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  services.tlp.enable = true;
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 22 ];
@@ -174,7 +177,7 @@ programs.zsh.enable = true;
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "19.03"; # Did you read the comment?
+  system.stateVersion = "19.09"; # Did you read the comment?
 
   # Enable cron service
   services.cron = {
