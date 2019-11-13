@@ -4,13 +4,16 @@ import XMonad.Config.Xfce
 import XMonad.Hooks.DynamicLog
 
 
---  setRandomWallpaper ["$HOME/photo/wall"]
+--  setrandomwallpaper ["$home/photo/wall"]
 import XMonad
 import XMonad.Hooks.DynamicLog (xmobar)
- 
+
 myConfig = def
   { terminal    = "xfce4-terminal" -- for Mod + Shift + Enter
   , borderWidth = 3
   }
- 
-main = xmonad =<< xmobar myConfig
+
+-- main = xmonad =<< xmobar myConfig
+main = do
+  setRandomWallpaper ["$HOME/photo/wall"]
+  xmonad =<< xmobar myConfig
