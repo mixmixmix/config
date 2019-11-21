@@ -45,10 +45,10 @@
 
   services.redshift = {
     enable = true;
-    latitude = "55.8536";
-    longitude = "-4.2786";
     temperature.night = 4000;
   };
+  location.latitude = 55.8536;
+  location.longitude = -4.2786;
 
 
 
@@ -60,6 +60,7 @@
 	oh-my-zsh
 	dropbox dropbox-cli
 	bitwarden-cli
+	bitwarden
 	keepass kpcli
 	qt5Full	
 	slack feh imagej
@@ -103,6 +104,13 @@
 	lolcat
 	R
 	rstudio
+	tdesktop
+	octaveFull
+	gcc
+	steam
+	steam-run-native
+	steam-run
+	molly-guard	#Attempts to prevent you from accidentally shutting down or rebooting machines
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
