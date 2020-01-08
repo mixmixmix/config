@@ -89,6 +89,7 @@
 	openvpn
 	dmenu
 	xmobar	
+	colordiff
 	pciutils
 	evince
 	thunderbird
