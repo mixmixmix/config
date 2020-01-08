@@ -69,7 +69,7 @@
 	networkmanager
 	xterm zsh
 	usbutils
-	ranger powertop
+	ranger 
 	wget xclip
 	vlc	mplayer
 	ffmpeg	ghc
@@ -93,24 +93,36 @@
 	evince
 	thunderbird
 	libreoffice
+	blender
+	shotwell
 	conda
-	jetbrains.pycharm-community
+	jetbrains.pycharm-professional
 	#util
 	autofs5 #automount kernel
 	afuse #automount user space
+	geteltorito
+	powertop
+	upower
 	#FUN FUN FUN
+	darktable
 	fortune
 	cowsay
 	lolcat
 	R
 	rstudio
+	#comms
 	tdesktop
+	signal-desktop
 	octaveFull
 	gcc
 	steam
 	steam-run-native
 	steam-run
 	molly-guard	#Attempts to prevent you from accidentally shutting down or rebooting machines
+	pmutils
+	vscode-with-extensions
+	wmname
+#	lightlocker
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -130,8 +142,13 @@
   # Or disable the firewall altogether.
   networking.firewall.enable = true;
 
+  # DNS issue in firefox: https://github.com/NixOS/nixpkgs/issues/63754
+  networking.resolvconf.dnsExtensionMechanism = false;
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
+  #disable bluetooth
+  hardware.bluetooth.enable = false;
 
   # Enable sound.
   sound.enable = true;
@@ -141,19 +158,19 @@
   		enable = true;
   		layout = "gb";
   		xkbOptions = "caps:escape";
-  		displayManager.sddm.enable = true;
+  		displayManager.lightdm.enable = true;
 
   # Enable touchpad support.
-                   libinput.enable = true;
-	desktopManager = {
-	default = "xfce";
-	xterm.enable = false;
-	xfce = {
-		enable = true;
-		noDesktop = true;
-		enableXfwm = false;
+		libinput.enable = true;
+		desktopManager = {
+			default = "xfce";
+			xterm.enable = false;
+			xfce = {
+				enable = true;
+				noDesktop = true;
+				enableXfwm = false;
+			};
 		};
-	};
 
   windowManager = {
 	default = "xmonad";
