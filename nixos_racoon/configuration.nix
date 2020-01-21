@@ -95,9 +95,9 @@
 	thunderbird
 	libreoffice
 	blender
-	shotwell
 	conda
 	jetbrains.pycharm-professional
+  virtualbox
 	#util
 	autofs5 #automount kernel
 	afuse #automount user space
@@ -105,12 +105,26 @@
 	powertop
 	upower
 	#FUN FUN FUN
+  #games
+  openra
+
+  #photo
 	darktable
+  ufraw
+	shotwell
+
 	fortune
 	cowsay
 	lolcat
 	R
 	rstudio
+  #developer
+  texlive.combined.scheme-full
+	nodejs
+  w3m
+  kitty
+  mullvad-vpn
+  # iterm2 - apparently unsupported on linux (?!). Ah it is a macos terminal of course...
 	#comms
 	tdesktop
 	signal-desktop
@@ -256,5 +270,5 @@ programs.zsh.interactiveShellInit = ''
 '';
 
 programs.zsh.promptInit = ""; # Clear this to avoid a conflict with oh-my-zsh
-
+hardware.opengl.driSupport32Bit = true;
 }
