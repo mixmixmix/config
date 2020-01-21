@@ -51,6 +51,7 @@
 	oh-my-zsh
 	dropbox dropbox-cli
 	bitwarden-cli
+	bitwarden
 	keepass kpcli
 	qt5Full	
 	slack feh imagej
@@ -59,7 +60,8 @@
 	networkmanager
 	xterm zsh
 	usbutils
-	ranger powertop
+	ranger 
+	powertop
 	wget xclip
 	vlc	mplayer
 	ffmpeg	ghc
@@ -73,17 +75,33 @@
 	bzip2 unzip
 	chrony pmutils
 	geteltorito
+	colordiff	
 	arp-scan
+	#desktop
+	gnome2.gtk
 	#FJELLTOPP
 	docker
 	docker-compose
+	jetbrains.pycharm-professional
+	autofs5
+	afuse
+	geteltorito
+	darktable
+	fortune
+	cowsay
+	lolcat
 	#python2
 	awscli
 	#life
-	cutegram
 	thunderbird
 	discord
 	steam
+	evince
+	libreoffice	
+	blender
+	shotwell
+	tdesktop
+	signal-desktop
 	#
 	cmatrix
 	monero monero-gui
@@ -105,6 +123,17 @@
   	conda
         glib
 	emacs
+	exiftool
+	R
+	rstudio
+	octaveFull
+	gcc
+	molly-guard
+	pmutils
+	vscode-with-extensions
+	wmname
+	#tools
+	nix-index
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -139,7 +168,7 @@
   		enable = true;
   		layout = "gb";
   		xkbOptions = "caps:escape";
-  		displayManager.sddm.enable = true;
+  		displayManager.lightdm.enable = true;
 		videoDrivers = ["nvidia"];
   # Enable touchpad support.
 		libinput.enable = true;
@@ -148,8 +177,8 @@
 	xterm.enable = false;
 	xfce = {
 		enable = true;
-		noDesktop = false;
-		enableXfwm = true;
+		noDesktop = true;
+		enableXfwm =false;
 		};
 	};
 
@@ -186,13 +215,13 @@
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "19.03"; # Did you read the comment?
+  system.stateVersion = "19.09"; # Did you read the comment?
 
   # Enable cron service
   services.cron = {
     enable = true;
     systemCronJobs = [
-      "*/10 * * * *      mix    . /etc/profile; bash /home/mix/repos/organutan/pushme_badger.sh >> /home/mix/repos/organutan/autopush.log"
+      "*/1 * * * *     mix    . /etc/profile; /home/mix/repos/organutan/pushme_badger.sh >> /home/mix/repos/organutan/autopush.log"
       "*/5 * * * *      root    date >> /tmp/cron.log"
     ];
   };
@@ -233,6 +262,8 @@ programs.zsh.interactiveShellInit = ''
 
   source $ZSH/oh-my-zsh.sh
   alias euclid35="ssh -X 2412135k@euclid-35.maths.gla.ac.uk"
+alias dragon="~/repos/config/dragon.sh"
+
 '';
 
 programs.zsh.promptInit = ""; # Clear this to avoid a conflict with oh-my-zsh
