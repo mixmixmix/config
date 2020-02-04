@@ -11,6 +11,9 @@
       ./pythonix.nix
 #      ./spacemacs.nix
     ];
+  powerManagement.enable = true;
+  powerManagement.powertop.enable = true;
+
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
@@ -23,7 +26,7 @@
   boot.resumeDevice = "/dev/sda2";
   # TODO implement better energy saving ?
   #boot.extraModulePackages = with config.boot.kernelPackages;[acpi-call tp-smapi];
-  boot.initrd.kernelModules = ["acpi" "thinkpad-acpi" "acpi-call" "tp-smapi"];
+  boot.initrd.kernelModules = ["acpi" "thinkpad-acpi" "acpi-call" "tp-smapi" "cpufreq_stats"];
   boot.extraModulePackages = with config.boot.kernelPackages; [ acpi_call tp_smapi];
 
   networking.hostName = "raccoon"; # Define your hostname.
@@ -81,9 +84,11 @@
 	exfat-utils
 	gnupg archiver
 	bzip2 unzip
+  ispell
 	chrony pmutils
 	geteltorito
 	arp-scan
+  powertop
 	cmatrix
 	monero monero-gui
 	openvpn
@@ -93,6 +98,8 @@
 	pciutils
 	evince
 	thunderbird
+  gnome3.evolution
+  discord
 	libreoffice
 	blender
 	conda
@@ -102,7 +109,6 @@
 	autofs5 #automount kernel
 	afuse #automount user space
 	geteltorito
-	powertop
 	upower
 	#FUN FUN FUN
   #games
@@ -112,7 +118,7 @@
 	darktable
   ufraw
 	shotwell
-
+  inxi
 	fortune
 	cowsay
 	lolcat
@@ -137,6 +143,7 @@
 	pmutils
 	vscode-with-extensions
 	wmname
+cpufrequtils
 #	lightlocker
   ];
 
@@ -149,7 +156,14 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  services.tlp.enable = true;
+  services.tlp = {
+    enable = true;
+    extraConfig = ''
+      CPU_SCALING_GOVERNOR_ON_BAT=powersave
+      ENERGY_PERF_POLICY_ON_BAT=powersave
+  '';
+  };
+
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 22 ];
@@ -262,11 +276,14 @@ programs.zsh.interactiveShellInit = ''
   ZSH_THEME="bureau"
   SAVEHIST=10000
   HISTSIZE=10000
+  EDITOR=vim #this is for ranger or others
+  VISUAL=vim
   plugins=(git vi-mode)
 
   source $ZSH/oh-my-zsh.sh
   alias euclid35="ssh -X 2412135k@euclid-35.maths.gla.ac.uk"
   alias dragon="~/repos/config/dragon.sh"
+  alias discord="discord"
 '';
 
 programs.zsh.promptInit = ""; # Clear this to avoid a conflict with oh-my-zsh
