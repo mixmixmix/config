@@ -13,8 +13,19 @@
     ];
   powerManagement.enable = true;
   powerManagement.powertop.enable = true;
-
-
+  #powerManagement.cpuFreqGovernor = null; # will be managed by tlp
+  #https://gist.github.com/fikovnik/f9d5283689d663d162d79c061774f79b
+  #https://bbs.archlinux.org/viewtopic.php?pid=1030190#p1030190
+  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelParams = [
+    "pcie.aspm=force"
+    "i915.enable_fbc=1"
+    "i915.enable_rc6=7"
+    "i915.lvds_downclock=1"
+    "i915.enable_guc_loading=1"
+    "i915.enable_guc_submission=1"
+    "i915.enable_psr=0"
+  ];
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
@@ -66,7 +77,10 @@
 	bitwarden
 	keepass kpcli
 	qt5Full	
-	slack feh imagej
+	slack
+  slack-term
+  slack-cli
+  feh imagej
     wget vim mc htop tmux git 
 	firefox python3
 	networkmanager
@@ -89,11 +103,14 @@
 	geteltorito
 	arp-scan
   powertop
+  thinkfan
+  lm_sensors
 	cmatrix
 	monero monero-gui
 	openvpn
 	dmenu
-	xmobar	
+	xmobar
+  toggldesktop
 	colordiff
 	pciutils
 	evince
@@ -176,8 +193,9 @@ cpufrequtils
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
-  #disable bluetooth
+  #disable bluetooth. doens't work. I still need to sudo rfkill block bluetooth
   hardware.bluetooth.enable = false;
+  #also need to disable ethernet manually sudo modprobe -r e1000e  
 
   # Enable sound.
   sound.enable = true;
