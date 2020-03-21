@@ -11,7 +11,21 @@
       ./pythonix.nix
 #      ./spacemacs.nix
     ];
-
+  powerManagement.enable = true;
+  powerManagement.powertop.enable = true;
+  #powerManagement.cpuFreqGovernor = null; # will be managed by tlp
+  #https://gist.github.com/fikovnik/f9d5283689d663d162d79c061774f79b
+  #https://bbs.archlinux.org/viewtopic.php?pid=1030190#p1030190
+  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelParams = [
+    "pcie.aspm=force"
+    "i915.enable_fbc=1"
+    "i915.enable_rc6=7"
+    "i915.lvds_downclock=1"
+    "i915.enable_guc_loading=1"
+    "i915.enable_guc_submission=1"
+    "i915.enable_psr=0"
+  ];
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
@@ -23,7 +37,7 @@
   boot.resumeDevice = "/dev/sda2";
   # TODO implement better energy saving ?
   #boot.extraModulePackages = with config.boot.kernelPackages;[acpi-call tp-smapi];
-  boot.initrd.kernelModules = ["acpi" "thinkpad-acpi" "acpi-call" "tp-smapi"];
+  boot.initrd.kernelModules = ["acpi" "thinkpad-acpi" "acpi-call" "tp-smapi" "cpufreq_stats"];
   boot.extraModulePackages = with config.boot.kernelPackages; [ acpi_call tp_smapi];
 
   networking.hostName = "raccoon"; # Define your hostname.
@@ -63,7 +77,10 @@
 	bitwarden
 	keepass kpcli
 	qt5Full	
-	slack feh imagej
+	slack
+  slack-term
+  slack-cli
+  feh imagej
     wget vim mc htop tmux git 
 	firefox python3
 	networkmanager
@@ -81,18 +98,25 @@
 	exfat-utils
 	gnupg archiver
 	bzip2 unzip
+  ispell
 	chrony pmutils
 	geteltorito
 	arp-scan
+  powertop
+  thinkfan
+  lm_sensors
 	cmatrix
 	monero monero-gui
 	openvpn
 	dmenu
-	xmobar	
+	xmobar
+  toggldesktop
 	colordiff
 	pciutils
 	evince
 	thunderbird
+  gnome3.evolution
+  discord
 	libreoffice
 	blender
 	conda
@@ -102,7 +126,6 @@
 	autofs5 #automount kernel
 	afuse #automount user space
 	geteltorito
-	powertop
 	upower
 	#FUN FUN FUN
   #games
@@ -112,7 +135,7 @@
 	darktable
   ufraw
 	shotwell
-
+  inxi
 	fortune
 	cowsay
 	lolcat
@@ -137,6 +160,7 @@
 	pmutils
 	vscode-with-extensions
 	wmname
+cpufrequtils
 #	lightlocker
   ];
 
@@ -149,7 +173,14 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  services.tlp.enable = true;
+  services.tlp = {
+    enable = true;
+    extraConfig = ''
+      CPU_SCALING_GOVERNOR_ON_BAT=powersave
+      ENERGY_PERF_POLICY_ON_BAT=powersave
+  '';
+  };
+
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 22 ];
@@ -162,8 +193,9 @@
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
-  #disable bluetooth
+  #disable bluetooth. doens't work. I still need to sudo rfkill block bluetooth
   hardware.bluetooth.enable = false;
+  #also need to disable ethernet manually sudo modprobe -r e1000e  
 
   # Enable sound.
   sound.enable = true;
@@ -262,11 +294,14 @@ programs.zsh.interactiveShellInit = ''
   ZSH_THEME="bureau"
   SAVEHIST=10000
   HISTSIZE=10000
+  EDITOR=vim #this is for ranger or others
+  VISUAL=vim
   plugins=(git vi-mode)
 
   source $ZSH/oh-my-zsh.sh
   alias euclid35="ssh -X 2412135k@euclid-35.maths.gla.ac.uk"
   alias dragon="~/repos/config/dragon.sh"
+  alias discord="discord"
 '';
 
 programs.zsh.promptInit = ""; # Clear this to avoid a conflict with oh-my-zsh
