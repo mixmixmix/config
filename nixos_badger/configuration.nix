@@ -77,6 +77,7 @@
 	geteltorito
 	colordiff	
 	arp-scan
+	texlive.combined.scheme-full
 	#desktop
 	gnome2.gtk
 	#FJELLTOPP
@@ -126,6 +127,9 @@
 	exiftool
 	R
 	rstudio
+	steam
+	steam-run-native
+	steam-run
 	octaveFull
 	gcc
 	molly-guard
@@ -134,6 +138,12 @@
 	wmname
 	#tools
 	nix-index
+	lightlocker
+	unar
+	openshot-qt
+	cinelerra
+	shotcut
+
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -172,15 +182,17 @@
 		videoDrivers = ["nvidia"];
   # Enable touchpad support.
 		libinput.enable = true;
-	desktopManager = {
-	default = "xfce";
-	xterm.enable = false;
-	xfce = {
-		enable = true;
-		noDesktop = true;
-		enableXfwm =false;
+		desktopManager = {
+		default = "xfce";
+		xterm.enable = true;
+		xfce = {
+			enable = true;
+			noDesktop = true;
+			enableXfwm =false;
+			};
+		gnome3.enable = true;
+		plasma5.enable = true;
 		};
-	};
 
   windowManager = {
 	default = "xmonad";
@@ -210,6 +222,11 @@
     shell = pkgs.zsh;
     extraGroups = [ "wheel" "sudo" "networkmanager" "docker"]; # Enable ‘sudo’ for the user.
   };
+  users.users.freja = {
+    isNormalUser = true;
+    extraGroups = [ "networkmanager" ]; # Enable ‘sudo’ for the user.
+  };
+ 
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
@@ -268,6 +285,6 @@ alias dragon="~/repos/config/dragon.sh"
 
 programs.zsh.promptInit = ""; # Clear this to avoid a conflict with oh-my-zsh
 
-
-
+hardware.opengl.driSupport32Bit = true;
+hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
 }
