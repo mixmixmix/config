@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./pythonix.nix
+      ./common_mixpacks.nix
 #      ./spacemacs.nix
     ];
   powerManagement.enable = true;
@@ -55,6 +56,7 @@
   };
 
   # Set your time zone.
+ # time.timeZone = "Asia/Kolkata";
   time.timeZone = "Europe/London";
 
   services.redshift = {
@@ -80,7 +82,7 @@
 	slack
   slack-term
   slack-cli
-  feh imagej
+  imagej
     wget vim mc htop tmux git 
 	firefox python3
 	networkmanager
@@ -144,6 +146,7 @@
   #developer
   texlive.combined.scheme-full
 	nodejs
+  hugo
   w3m
   kitty
   mullvad-vpn
@@ -162,6 +165,12 @@
 	wmname
 cpufrequtils
 #	lightlocker
+  trash-cli
+  jdiskreport
+  gnome3.gnome-disk-utility
+  aircrack-ng
+
+  networkmanager
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -190,12 +199,14 @@ cpufrequtils
 
   # DNS issue in firefox: https://github.com/NixOS/nixpkgs/issues/63754
   networking.resolvconf.dnsExtensionMechanism = false;
+  networking.nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" "8.8.4.4" ];
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
   #disable bluetooth. doens't work. I still need to sudo rfkill block bluetooth
   hardware.bluetooth.enable = false;
   #also need to disable ethernet manually sudo modprobe -r e1000e  
+  #ATM ethernet is disabled in ThinkVantage in BIOS
 
   # Enable sound.
   sound.enable = true;
