@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 set -xe
-mkdir repos
-cd repos
+mkdir ../bitbucket_repos
+cd ../bitbucket_repos
 git clone git@bitbucket.org:mkundegorski/organutan.git
 git clone git@bitbucket.org:mkundegorski/latex.git
 git clone git@bitbucket.org:mkundegorski/rachael.git
