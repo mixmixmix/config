@@ -1,4 +1,6 @@
 cp /etc/nixos/configuration.nix .
+cp /etc/nixos/common_mixpacks.nix .
+cp /etc/nixos/pythonix.nix .
 cp ~/.xmonad/xmonad.hs .
 cp ~/.spacemacs spacemacs
 cp ~/.xmobarrc xmobarrc
