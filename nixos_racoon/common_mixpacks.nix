@@ -3,12 +3,19 @@
   environment.systemPackages = with pkgs; [
 #photo, audio, video
     feh
+    #paintlike
+    mtpaint
+    mypaint
+    pinta
+    tuxpaint
 #networking
     mtr
     bind #for package dig
-#system mangement
+#system management
     baobab #disk utility analyser
 #web fun
-    chromium
+    #chromium #it keeps appearing instead of firefox in thunderbird links. Till I can fix it, it is out.
+#science
+    zotero
   ];
 }
