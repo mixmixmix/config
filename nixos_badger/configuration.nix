@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./pythonix.nix
+      ./common_mixpacks.nix
 #      ./spacemacs.nix
     ];
 
@@ -29,6 +30,9 @@
   networking.hostName = "badger"; # Define your hostname.
   networking.networkmanager.enable = true;  # Enables wireless support via wpa_supplicant.
   services.chrony.enable = true;
+  # DNS issue in firefox: https://github.com/NixOS/nixpkgs/issues/63754
+  networking.resolvconf.dnsExtensionMechanism = false;
+  networking.nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" "8.8.4.4" ];
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -55,7 +59,7 @@
 	keepass kpcli
 	qt5Full	
 	slack feh imagej
-    wget vim mc htop tmux git 
+  wget vim mc htop tmux git 
 	firefox python3
 	networkmanager
 	xterm zsh
