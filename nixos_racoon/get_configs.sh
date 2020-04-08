@@ -7,7 +7,7 @@ cp ~/.spacemacs ../spacemacs
 cp /etc/nixos/configuration.nix .
 cp ~/onstart.sh onstart.sh
 echo "copied configs"
-git add .
+git add ..
 git commit -m "most recent Racoon configs"
 git push
 
