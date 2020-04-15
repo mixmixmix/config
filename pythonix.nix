@@ -8,22 +8,20 @@ let
       pandas
       matplotlib
       scipy
-      scikitlearn
-      scikitimage
       tensorflow
-      seaborn
-      shapely
-      folium
-      statsmodels
-      yapf
-      xlrd
-      pyproj #map projections
-      python-dotenv
-      opencv4
+      pip
+      filterpy
+  ]);
+  python2-with-my-packages =
+    pkgs.python2.withPackages (python-packages: with python-packages; [
+      numpy
+      pip
+      passlib
   ]);
 in
 {
   environment.systemPackages = with pkgs; [
     python3-with-my-packages
+    python2-with-my-packages
   ];
 }
