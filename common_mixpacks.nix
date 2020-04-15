@@ -24,6 +24,8 @@ let
     dropbox dropbox-cli
     bitwarden bitwarden-cli
     keepass kpcli
+    #fonts
+    ipafont nkf
 #developes
     qt5Full
     gnome2.gtk
