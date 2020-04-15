@@ -48,108 +48,6 @@
   # Set your time zone.
   time.timeZone = "Europe/London";
 
-  # List packages installed in system profile. To search, run: $ nix search
-  # wget
-  environment.systemPackages = with pkgs; [
-	#(import /etc/nixos/emacs.nix)
-	oh-my-zsh
-	dropbox dropbox-cli
-	bitwarden-cli
-	bitwarden
-	keepass kpcli
-	qt5Full	
-	slack feh imagej
-  wget vim mc htop tmux git 
-	firefox python3
-	networkmanager
-	xterm zsh
-	usbutils
-	ranger 
-	powertop
-	wget xclip
-	vlc	mplayer
-	ffmpeg	ghc
-	clipgrab irssi
-	bitwarden-cli audacity
-	sl youtube-dl
-	fish tlp nox
-	tpacpi-bat
-	exfat-utils
-	gnupg archiver
-	bzip2 unzip
-	chrony pmutils
-	geteltorito
-	colordiff	
-	arp-scan
-	texlive.combined.scheme-full
-	#desktop
-	gnome2.gtk
-	#FJELLTOPP
-	docker
-	docker-compose
-	jetbrains.pycharm-professional
-	autofs5
-	afuse
-	geteltorito
-	darktable
-	fortune
-	cowsay
-	lolcat
-	#python2
-	awscli
-	#life
-	thunderbird
-	discord
-	steam
-	evince
-	libreoffice	
-	blender
-	shotwell
-	tdesktop
-	signal-desktop
-	#
-	cmatrix
-	monero monero-gui
-	openvpn
-	#xmonad nad other geeks
-	xmobar
-	dmenu
-	# obvious and basic like lspci
-	pciutils
-	chrony
-	gparted
-	ntfs3g
-	#GPU fun
-	unigine-valley
-	glmark2
-	mesa
-	freeglut
-  	#dev etc:
-  	conda
-        glib
-	emacs
-	exiftool
-	R
-	rstudio
-	steam
-	steam-run-native
-	steam-run
-	octaveFull
-	gcc
-	molly-guard
-	pmutils
-	vscode-with-extensions
-	wmname
-	#tools
-	nix-index
-	lightlocker
-	unar
-	openshot-qt
-	cinelerra
-	shotcut
-
-  ];
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -192,7 +90,7 @@
 		xfce = {
 			enable = true;
 			noDesktop = true;
-			enableXfwm =false;
+			enableXfwm = false;
 			};
 		gnome3.enable = true;
 		plasma5.enable = true;
