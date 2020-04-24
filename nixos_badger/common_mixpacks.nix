@@ -1,11 +1,12 @@
 { config, pkgs, ... }:
 let
-  R-with-my-packages = pkgs.rWrapper.override{ packages = with pkgs.rPackages; [ ggplot2 dplyr xts markdown shiny]; };
+  R-with-my-packages = pkgs.rWrapper.override{ packages = with pkgs.rPackages; [ deSolve ggplot2 dplyr xts markdown shiny reshape2 scales Imap dplyr viridis ]; };
   in
 {
   environment.systemPackages = with pkgs; [
     #key apps
     slack firefox networkmanager zsh thunderbird discord steam evince	libreoffice	blender tdesktop signal-desktop
+playonlinux
 #photo, audio, video
     feh vlc mplayer ffmpeg clipgrab audacity youtube-dl
     imagej darktable shotwell openshot-qt cinelerra shotcut
