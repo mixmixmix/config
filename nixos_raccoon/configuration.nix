@@ -49,11 +49,11 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  i18n = {
-    consoleFont = "Lat2-Terminus16";
-    consoleKeyMap = "uk";
-    defaultLocale = "en_GB.UTF-8";
+  console = {
+    font = "Lat2-Terminus16";
+    keyMap = "uk";
   };
+    i18n.defaultLocale = "en_GB.UTF-8";
 
   # Set your time zone.
  # time.timeZone = "Asia/Kolkata";
@@ -217,11 +217,13 @@ cpufrequtils
   		layout = "gb";
   		xkbOptions = "caps:escape";
   		displayManager.lightdm.enable = true;
+      displayManager.defaultSession = "xfce+xmonad";
 
   # Enable touchpad support.
 		libinput.enable = true;
+
+
 		desktopManager = {
-			default = "xfce";
 			xterm.enable = false;
 			xfce = {
 				enable = true;
@@ -231,7 +233,6 @@ cpufrequtils
 		};
 
   windowManager = {
-	default = "xmonad";
 	xmonad = { 
 		enable = true;
 		enableContribAndExtras = true;
@@ -262,7 +263,7 @@ programs.zsh.enable = true;
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "19.09"; # Did you read the comment?
+  system.stateVersion = "20.03"; # Did you read the comment?
 
   # Enable cron service
   services.cron = {
@@ -279,24 +280,8 @@ programs.zsh.enable = true;
   ];
 
 services.nixosManual.showManual = true;
-nixpkgs.config.allowUnfree = true; 
+nixpkgs.config.allowUnfree = true;
 
-  fonts = {
-    fonts = with pkgs; [
-      dejavu_fonts
-      source-code-pro
-      source-sans-pro
-      source-serif-pro
-    ];
-    fontconfig = {
-      penultimate.enable = false;
-      defaultFonts = {
-        monospace = [ "Source Code Pro" ];
-        sansSerif = [ "Source Sans Pro" ];
-        serif     = [ "Source Serif Pro" ];
-      };
-    };
-  };
 
 programs.zsh.interactiveShellInit = ''
   export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh/
