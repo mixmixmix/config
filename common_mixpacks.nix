@@ -23,12 +23,12 @@ in
     pciutils #lspci
     chrony gparted ntfs3g
     #file sync
-    dropbox dropbox-cli
+    dropbox dropbox-cli calibre
     bitwarden bitwarden-cli
     keepass kpcli
     #developes
     qt5Full
-    gnome2.gtk
+    gnome2.gtk postgresql sqlite
     #haskell
     ghc
     #FJELLTOPP
@@ -58,7 +58,7 @@ in
     #web fun
     #chromium #it keeps appearing instead of firefox in thunderbird links. Till I can fix it, it is out.
     #science
-    zotero
+    zotero zoom-us
     R-with-my-packages
     texlive.combined.scheme-full
   ];
