@@ -23,12 +23,12 @@ in
     pciutils #lspci
     chrony gparted ntfs3g
     #file sync
-    dropbox dropbox-cli
+    dropbox dropbox-cli calibre
     bitwarden bitwarden-cli
     keepass kpcli
     #developes
     qt5Full
-    gnome2.gtk
+    gnome2.gtk postgresql sqlite
     #haskell
     ghc
     #FJELLTOPP
