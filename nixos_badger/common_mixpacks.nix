@@ -58,7 +58,7 @@ in
     #web fun
     #chromium #it keeps appearing instead of firefox in thunderbird links. Till I can fix it, it is out.
     #science
-    zotero
+    zotero zoom-us
     R-with-my-packages
     texlive.combined.scheme-full
   ];
