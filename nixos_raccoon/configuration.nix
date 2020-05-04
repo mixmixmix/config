@@ -191,11 +191,11 @@ cpufrequtils
   };
 
 
-  # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 22 ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = true;
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 22 17500 ];
+    allowedUDPPorts = [ 17500 ];
+  };
 
   # DNS issue in firefox: https://github.com/NixOS/nixpkgs/issues/63754
   networking.resolvconf.dnsExtensionMechanism = false;
@@ -211,6 +211,26 @@ cpufrequtils
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
+
+  virtualisation.docker.enable = true;
+
+  systemd.user.services.dropbox = {
+    description = "Dropbox";
+    wantedBy = [ "graphical-session.target" ];
+    environment = {
+      QT_PLUGIN_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtPluginPrefix;
+      QML2_IMPORT_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtQmlPrefix;
+    };
+    serviceConfig = {
+      ExecStart = "${pkgs.dropbox.out}/bin/dropbox";
+      ExecReload = "${pkgs.coreutils.out}/bin/kill -HUP $MAINPID";
+      KillMode = "control-group"; # upstream recommends process
+      Restart = "on-failure";
+      PrivateTmp = true;
+      ProtectSystem = "full";
+      Nice = 10;
+    };
+  };
 
   services.xserver = {
   		enable = true;
@@ -256,7 +276,7 @@ programs.zsh.enable = true;
   users.users.mix = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "sudo" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "sudo" "networkmanager" "docker"]; # Enable ‘sudo’ for the user.
   };
 
   # This value determines the NixOS release with which your system is to be
