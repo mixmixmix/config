@@ -193,7 +193,7 @@ cpufrequtils
 
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 22 17500 ];
+    allowedTCPPorts = [ 22 5321 17500 ];
     allowedUDPPorts = [ 17500 ];
   };
 

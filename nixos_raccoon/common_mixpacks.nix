@@ -1,12 +1,12 @@
 { config, pkgs, ... }:
 let
-  R-with-my-packages = pkgs.rWrapper.override{ packages = with pkgs.rPackages; [ ggplot2 dplyr xts markdown shiny]; };
+  R-with-my-packages = pkgs.rWrapper.override{ packages = with pkgs.rPackages; [ ggplot2 dplyr xts markdown shiny shinyjs shinythemes shinyWidgets shinydashboard DT ggpubr deSolve lubridate data_table readxl tidyverse ]; };
 in
 {
   environment.systemPackages = with pkgs; [
     #key apps
     slack firefox networkmanager zsh thunderbird discord steam evince	libreoffice	blender tdesktop signal-desktop
-    teams
+    teams claws-mail
     #photo, audio, video
     feh vlc mplayer ffmpeg clipgrab audacity youtube-dl
     imagej darktable shotwell  cinelerra shotcut
@@ -21,7 +21,7 @@ in
     oh-my-zsh usbutils mc irssi sl exfat-utils 	gnupg archiver 	bzip2 unzip 	chrony pmutils 	geteltorito 	colordiff 	arp-scan
     fortune cowsay lolcat autofs5 afuse
     pciutils #lspci
-    chrony gparted ntfs3g
+    chrony gparted ntfs3g unrar unp
     #file sync
     dropbox dropbox-cli calibre
     bitwarden bitwarden-cli
