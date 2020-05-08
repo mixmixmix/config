@@ -45,7 +45,7 @@ in
     baobab #disk utility analyser
     #geeky:
     cmatrix
-    monero monero-gui
+    monero monero-gui electrum
     openvpn
     #xmonad nad other geeks
     xmobar
