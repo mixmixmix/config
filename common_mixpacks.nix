@@ -61,6 +61,7 @@ in
     zotero zoom-us
     R-with-my-packages
     texlive.combined.scheme-full
+    haskellPackages.csv
   ];
   fonts = {
     fonts = with pkgs; [
