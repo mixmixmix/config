@@ -1,6 +1,14 @@
 { config, pkgs, ... }:
 let
   R-with-my-packages = pkgs.rWrapper.override{ packages = with pkgs.rPackages; [ swirl ggplot2 dplyr xts markdown shiny shinyjs shinythemes shinyWidgets shinydashboard DT ggpubr deSolve lubridate data_table readxl tidyverse ]; };
+  hsEnv = pkgs.haskellPackages.ghcWithPackages (self : [
+  self.ghc
+  self.csv
+  self.aeson
+  self.hxt
+  self.split
+  self.HandsomeSoup
+  ]);
 in
 {
   environment.systemPackages = with pkgs; [
@@ -17,7 +25,7 @@ in
     pinta
     tuxpaint
     #linux basic
-    xterm xclip tmux git htop vim wget ranger powertop
+    xterm xclip tmux git htop ytop vim wget ranger powertop
     oh-my-zsh usbutils mc irssi sl exfat-utils 	gnupg archiver 	bzip2 unzip 	chrony pmutils 	geteltorito 	colordiff 	arp-scan
     fortune cowsay lolcat autofs5 afuse
     pciutils #lspci
@@ -30,7 +38,7 @@ in
     qt5Full
     gnome2.gtk postgresql sqlite
     #haskell
-    ghc
+    hsEnv
     #FJELLTOPP
     docker
     docker-compose

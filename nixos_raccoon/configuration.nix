@@ -235,7 +235,7 @@ cpufrequtils
   services.xserver = {
   		enable = true;
   		layout = "gb";
-  		xkbOptions = "caps:escape";
+  		xkbOptions = "caps:escape, ctrl:swap_lalt_lctl, ctrl:swap_ralt_rctl";
   		displayManager.lightdm.enable = true;
       displayManager.defaultSession = "xfce+xmonad";
 
