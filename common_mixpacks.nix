@@ -17,7 +17,7 @@ in
     teams claws-mail
     #photo, audio, video
     feh vlc mplayer ffmpeg clipgrab audacity youtube-dl
-    imagej darktable shotwell  cinelerra shotcut
+    imagej darktable shotwell  cinelerra shotcut jbidwatcher
     #openshot-qt #apparently broken in 20.03
     #paintlike
     mtpaint
@@ -37,6 +37,8 @@ in
     #developes
     qt5Full
     gnome2.gtk postgresql sqlite
+    postgresql11Packages.postgis
+    pgadmin pgmodeler
     #haskell
     hsEnv
     #FJELLTOPP
@@ -97,4 +99,25 @@ in
       };
     };
   };
+       nixpkgs.config.permittedInsecurePackages = [
+         "openssl-1.0.2u"
+       ];
+
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql_11;
+    enableTCPIP = true;
+    authentication = pkgs.lib.mkOverride 10 ''
+      local all all trust
+      host all all ::1/128 trust
+    '';
+    initialScript = pkgs.writeText "backend-initScript" ''
+      CREATE ROLE mix WITH LOGIN PASSWORD 'test' CREATEDB;
+      CREATE DATABASE mixtext;
+      GRANT ALL PRIVILEGES ON DATABASE mixtest TO mix;
+    '';
+  };
+
+
 }
+
