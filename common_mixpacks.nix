@@ -1,6 +1,14 @@
 { config, pkgs, ... }:
 let
-  R-with-my-packages = pkgs.rWrapper.override{ packages = with pkgs.rPackages; [ ggplot2 dplyr xts markdown shiny shinyjs shinythemes shinyWidgets shinydashboard DT ggpubr deSolve lubridate data_table readxl tidyverse ]; };
+  R-with-my-packages = pkgs.rWrapper.override{ packages = with pkgs.rPackages; [ swirl ggplot2 dplyr xts markdown shiny shinyjs shinythemes shinyWidgets shinydashboard DT ggpubr deSolve lubridate data_table readxl tidyverse ]; };
+  hsEnv = pkgs.haskellPackages.ghcWithPackages (self : [
+  self.ghc
+  self.csv
+  self.aeson
+  self.hxt
+  self.split
+  self.HandsomeSoup
+  ]);
 in
 {
   environment.systemPackages = with pkgs; [
@@ -9,7 +17,7 @@ in
     teams claws-mail
     #photo, audio, video
     feh vlc mplayer ffmpeg clipgrab audacity youtube-dl
-    imagej darktable shotwell  cinelerra shotcut
+    imagej darktable shotwell  cinelerra shotcut jbidwatcher
     #openshot-qt #apparently broken in 20.03
     #paintlike
     mtpaint
@@ -17,11 +25,11 @@ in
     pinta
     tuxpaint
     #linux basic
-    xterm xclip tmux git htop vim wget ranger powertop
+    xterm xclip tmux git htop ytop vim wget ranger powertop
     oh-my-zsh usbutils mc irssi sl exfat-utils 	gnupg archiver 	bzip2 unzip 	chrony pmutils 	geteltorito 	colordiff 	arp-scan
     fortune cowsay lolcat autofs5 afuse
     pciutils #lspci
-    chrony gparted ntfs3g unrar unp
+    chrony gparted ntfs3g unrar unp zip
     #file sync
     dropbox dropbox-cli calibre
     bitwarden bitwarden-cli
@@ -29,8 +37,10 @@ in
     #developes
     qt5Full
     gnome2.gtk postgresql sqlite
+    postgresql11Packages.postgis
+    pgadmin pgmodeler
     #haskell
-    ghc
+    hsEnv
     #FJELLTOPP
     docker
     docker-compose
@@ -61,6 +71,7 @@ in
     zotero
     R-with-my-packages
     texlive.combined.scheme-full
+    haskellPackages.csv
   ];
   fonts = {
     fonts = with pkgs; [
@@ -88,4 +99,25 @@ in
       };
     };
   };
+       nixpkgs.config.permittedInsecurePackages = [
+         "openssl-1.0.2u"
+       ];
+
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql_11;
+    enableTCPIP = true;
+    authentication = pkgs.lib.mkOverride 10 ''
+      local all all trust
+      host all all ::1/128 trust
+    '';
+    initialScript = pkgs.writeText "backend-initScript" ''
+      CREATE ROLE mix WITH LOGIN PASSWORD 'test' CREATEDB;
+      CREATE DATABASE mixtext;
+      GRANT ALL PRIVILEGES ON DATABASE mixtest TO mix;
+    '';
+  };
+
+
 }
+
