@@ -13,6 +13,7 @@ myConfig = def
   { terminal    = "xfce4-terminal" -- for Mod + Shift + Enter
   , borderWidth = 1
   , handleEventHook    = fullscreenEventHook
+  , modMask = mod4Mask
   }
 
 -- main = xmonad =<< xmobar myConfig

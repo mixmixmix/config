@@ -64,6 +64,7 @@ in
     unigine-valley
     glmark2
     mesa
+    zoom-us
     freeglut
     #web fun
     #chromium #it keeps appearing instead of firefox in thunderbird links. Till I can fix it, it is out.
