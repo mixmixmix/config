@@ -14,7 +14,8 @@ in
   environment.systemPackages = with pkgs; [
     #key apps
     slack firefox networkmanager zsh thunderbird discord steam evince	libreoffice	blender tdesktop signal-desktop
-    teams claws-mail
+    teams
+    kdeApplications.kmail
     #photo, audio, video
     feh vlc mplayer ffmpeg clipgrab audacity youtube-dl
     imagej darktable shotwell  cinelerra shotcut jbidwatcher
@@ -38,7 +39,7 @@ in
     qt5Full
     gnome2.gtk postgresql sqlite
     postgresql11Packages.postgis
-    pgadmin pgmodeler
+    pgadmin pgmodeler qgis gdal
     #haskell
     hsEnv
     #FJELLTOPP
@@ -107,16 +108,11 @@ in
     enable = true;
     package = pkgs.postgresql_11;
     enableTCPIP = true;
-    authentication = pkgs.lib.mkOverride 10 ''
+    authentication = pkgs.lib.mkOverride 11 ''
       local all all trust
       host all all ::1/128 trust
     '';
-    initialScript = pkgs.writeText "backend-initScript" ''
-      CREATE ROLE mix WITH LOGIN PASSWORD 'test' CREATEDB;
-      CREATE DATABASE mixtext;
-      GRANT ALL PRIVILEGES ON DATABASE mixtest TO mix;
-    '';
-  };
+    };
 
 
 }
