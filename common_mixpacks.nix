@@ -48,7 +48,7 @@ in
     jetbrains.pycharm-professional
     awscli #python2
     #dev etc:
-    conda glib emacs exiftool rstudio steam steam-run-native steam-run octaveFull gcc molly-guard pmutils vscode-with-extensions wmname nix-index unar
+    conda glib emacs exiftool rstudio octaveFull gcc molly-guard pmutils vscode-with-extensions wmname nix-index unar
     #networking
     mtr fish tlp nox
     bind #for package dig
@@ -65,11 +65,15 @@ in
     unigine-valley
     glmark2
     mesa
+    zoom-us
     freeglut
+    #Games
+    openttd openra
+    steam steam-run-native steam-run 
     #web fun
     #chromium #it keeps appearing instead of firefox in thunderbird links. Till I can fix it, it is out.
     #science
-    zotero zoom-us
+    zotero
     R-with-my-packages
     texlive.combined.scheme-full
     haskellPackages.csv
