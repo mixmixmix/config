@@ -28,7 +28,7 @@ in
     #linux basic
     xterm xclip tmux git htop ytop vim wget ranger powertop pmutils
     oh-my-zsh usbutils mc irssi sl exfat-utils 	gnupg archiver 	bzip2 unzip 	chrony pmutils 	geteltorito 	colordiff 	arp-scan
-    fortune cowsay lolcat autofs5 afuse
+    fortune cowsay lolcat autofs5 afuse file
     pciutils #lspci
     chrony gparted ntfs3g unrar unp zip
     #file sync
@@ -38,8 +38,9 @@ in
     #developes
     qt5Full
     gnome2.gtk postgresql sqlite
-    postgresql11Packages.postgis
-    pgadmin pgmodeler qgis gdal
+    postgresql11Packages.postgis pgloader
+    pgadmin pgmodeler qgis gdal pgmanage
+    mysql-workbench
     #haskell
     hsEnv
     #FJELLTOPP
@@ -108,9 +109,29 @@ in
          "openssl-1.0.2u"
        ];
 
+  services.mysql = {
+    enable = true;
+    package = pkgs.mysql;
+    bind = "localhost";
+    # ensureDatabases = [
+    #   miksuser.maindb
+    # ];
+    # ensureUsers = [
+    #   {
+    #     name = "miksuser";
+    #     ensurePermissions = {
+    #       "*.*" = "ALL PRIVILEGES";
+    #     };
+    #   }
+    # ];
+  # };
+
+
+  };
   services.postgresql = {
     enable = true;
     package = pkgs.postgresql_11;
+    extraPlugins = [pkgs.postgis];
     enableTCPIP = true;
     authentication = pkgs.lib.mkOverride 11 ''
       local all all trust
@@ -118,6 +139,7 @@ in
     '';
     };
 
+  services.gnome3.gnome-keyring.enable = true;
 
 }
 
