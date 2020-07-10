@@ -71,6 +71,7 @@ in
     freeglut
     #Games
     openttd openra
+    zerotierone
     steam steam-run-native steam-run 
     #web fun
     #chromium #it keeps appearing instead of firefox in thunderbird links. Till I can fix it, it is out.
