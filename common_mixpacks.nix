@@ -147,6 +147,9 @@ in
     127.0.0.1 facebook.com
     127.0.0.1 www.bbc.com
     127.0.0.1 news.bbc.co.uk
+    127.0.0.1 www.foxnews.com
+    127.0.0.1 www.cnn.com
+    127.0.0.1 *.cnn.com
     127.0.0.1 foxnews.com
     127.0.0.1 theguardian.com
     127.0.0.1 www.theguardian.com
