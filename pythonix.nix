@@ -10,7 +10,7 @@ let
       scipy
       scikitlearn
       scikitimage
-      tensorflow
+      #tensorflow
       seaborn
       shapely
       folium

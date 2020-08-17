@@ -13,12 +13,15 @@ in
 {
   environment.systemPackages = with pkgs; [
     #key apps
-    slack firefox networkmanager zsh thunderbird discord steam evince	libreoffice	blender tdesktop signal-desktop
+    slack firefox networkmanager zsh thunderbird discord evince	libreoffice	blender tdesktop signal-desktop
+    #mailspring
+    touchegg
     teams
     kdeApplications.kmail
     #photo, audio, video
     feh vlc mplayer ffmpeg clipgrab audacity youtube-dl
     imagej darktable shotwell  cinelerra shotcut jbidwatcher
+    mullvad-vpn
     #openshot-qt #apparently broken in 20.03
     #paintlike
     mtpaint
@@ -72,9 +75,9 @@ in
     #Games
     openttd openra
     zerotierone
-    steam steam-run-native steam-run 
+    steam steam-run
     #web fun
-    #chromium #it keeps appearing instead of firefox in thunderbird links. Till I can fix it, it is out.
+    chromium #it keeps appearing instead of firefox in thunderbird links. Till I can fix it, it is out.
     #science
     zotero
     R-with-my-packages
@@ -156,7 +159,8 @@ in
     127.0.0.1 theguardian.com
     127.0.0.1 www.onet.pl
     127.0.0.1 onet.pl
-
+    184.72.104.138 reddit.com
+    184.72.104.138 slashdot.org
   '';
 
 }
