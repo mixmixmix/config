@@ -1,1 +1,1 @@
-sudo echo "30" | sudo tee -a /sys/class/backlight/intel_backlight/brightness                                            
+sudo echo "5" | sudo tee -a /sys/class/backlight/intel_backlight/brightness                                            

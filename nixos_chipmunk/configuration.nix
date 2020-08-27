@@ -71,7 +71,8 @@
     i18n.defaultLocale = "en_GB.UTF-8";
 
   # Set your time zone.
-  time.timeZone = "Europe/Warsaw";
+  # time.timeZone = "Europe/Warsaw";
+  time.timeZone = "Europe/London";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

@@ -21,7 +21,7 @@ in
     #photo, audio, video
     feh vlc mplayer ffmpeg clipgrab audacity youtube-dl
     imagej darktable shotwell  cinelerra shotcut jbidwatcher
-    mullvad-vpn
+    mullvad-vpn pinentry
     #openshot-qt #apparently broken in 20.03
     #paintlike
     mtpaint
@@ -159,9 +159,10 @@ in
     127.0.0.1 theguardian.com
     127.0.0.1 www.onet.pl
     127.0.0.1 onet.pl
-    184.72.104.138 reddit.com
-    184.72.104.138 slashdot.org
-  '';
+'';
+ #   184.72.104.138 www.reddit.com
+ #   184.72.104.138 slashdot.org
+ # '';
 
 }
 
