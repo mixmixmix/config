@@ -9,12 +9,13 @@ let
   self.split
   self.HandsomeSoup
   ]);
+  unstable = import <nixos-unstable> {config = { allowUnfree = true; };};
 in
 {
   environment.systemPackages = with pkgs; [
     #key apps
-    slack firefox networkmanager zsh thunderbird discord evince	libreoffice	blender tdesktop signal-desktop
-    #mailspring
+    slack firefox networkmanager zsh discord evince	libreoffice	blender tdesktop signal-desktop
+    unstable.mailspring
     touchegg
     teams
     kdeApplications.kmail
