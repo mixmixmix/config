@@ -36,9 +36,10 @@ in
     pciutils #lspci
     chrony gparted ntfs3g unrar unp zip
     #file sync
-    dropbox dropbox-cli calibre
+    #dropbox dropbox-cli
+    calibre
     bitwarden bitwarden-cli
-    keepass kpcli
+    keepass kpcli rclone
     #developes
     qt5Full
     gnome2.gtk postgresql sqlite
