@@ -11,6 +11,8 @@ let
       scikitlearn
       scikitimage
       #tensorflow
+      flask
+      bokeh
       seaborn
       shapely
       folium
