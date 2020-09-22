@@ -31,7 +31,7 @@ in
     tuxpaint
     #linux basic
     xterm xclip tmux git htop ytop vim wget ranger powertop pmutils
-    oh-my-zsh usbutils mc irssi sl exfat-utils 	gnupg archiver 	bzip2 unzip 	chrony pmutils 	geteltorito 	colordiff 	arp-scan
+    oh-my-zsh usbutils mc irssi sl exfat-utils 	gnupg archiver 	bzip2 unzip 	chrony pmutils 	geteltorito 	colordiff 	arp-scan direnv
     fortune cowsay lolcat autofs5 afuse file
     pciutils #lspci
     chrony gparted ntfs3g unrar unp zip
