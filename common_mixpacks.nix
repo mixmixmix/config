@@ -22,7 +22,7 @@ in
     #photo, audio, video
     feh vlc mplayer ffmpeg clipgrab audacity youtube-dl
     imagej darktable shotwell  cinelerra shotcut jbidwatcher
-    mullvad-vpn pinentry
+    mullvad-vpn pinentry softether
     #openshot-qt #apparently broken in 20.03
     #paintlike
     mtpaint
@@ -153,4 +153,3 @@ in
   '';
 
 }
-
