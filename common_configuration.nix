@@ -26,6 +26,17 @@ programs.zsh.enable = true;
     allowedUDPPorts = [ 17500 ];
   };
 
+  # Select internationalisation properties.
+  console = {
+    font = "Lat2-Terminus16";
+    keyMap = "uk";
+  };
+    i18n.defaultLocale = "en_GB.UTF-8";
+
+  # Set your time zone.
+  # time.timeZone = "Europe/Warsaw";
+  time.timeZone = "Europe/London";
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
   #disable bluetooth. doens't work. I still need to sudo rfkill block bluetooth
