@@ -38,8 +38,9 @@ This function should only modify configuration layer settings."
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ;; auto-completion
+     auto-completion
      yaml
+     treemacs
      sql
      html
      nixos
@@ -468,6 +469,8 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
+(setq mac-command-modifier 'control) ; make cmd key do control
+(setq mac-control-modifier 'super) ; make Control key do super
   )
 
 (defun dotspacemacs/user-load ()
