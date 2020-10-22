@@ -14,6 +14,10 @@
 #      ./spacemacs.nix
     ];
 
+  environment.systemPackages = with pkgs; [
+    intel-gpu-tools
+  ];
+
   powerManagement.enable = true;
   powerManagement.powertop.enable = true;
 
@@ -36,7 +40,7 @@
 
   # networking
   networking.useDHCP = false;
-  networking.interfaces.enp0s31f6.useDHCP = true;
+  networking.interfaces.enp0s31f6.useDHCP = false;
   networking.interfaces.wlp4s0.useDHCP = true;
 
   # Use the GRUB 2 boot loader.
