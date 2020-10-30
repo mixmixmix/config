@@ -35,7 +35,7 @@ programs.zsh.enable = true;
 
   # Set your time zone.
   # time.timeZone = "Europe/Warsaw";
-  time.timeZone = "Europe/London";
+  #time.timeZone = "Europe/London";
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
