@@ -41,8 +41,11 @@ programs.zsh.enable = true;
   # services.printing.enable = true;
   #disable bluetooth. doens't work. I still need to sudo rfkill block bluetooth
   hardware.bluetooth.enable = false;
+  boot.blacklistedKernelModules = ["bluetooth" "btusb"];
   #also need to disable ethernet manually sudo modprobe -r e1000e  
   #ATM ethernet is disabled in ThinkVantage in BIOS
+
+  services.upower.enable = true;
 
   # Enable sound.
   sound.enable = true;
