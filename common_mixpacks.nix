@@ -15,10 +15,9 @@ in
   environment.systemPackages = with pkgs; [
     #key apps
     slack firefox networkmanager zsh discord evince	libreoffice	blender tdesktop signal-desktop
-    unstable.mailspring
+    mailspring #mailspring is introduced to 20.09 stable
     touchegg
     teams
-    kdeApplications.kmail
     #photo, audio, video
     feh vlc mplayer ffmpeg clipgrab audacity youtube-dl
     imagej darktable shotwell  cinelerra shotcut jbidwatcher
@@ -41,7 +40,7 @@ in
     bitwarden bitwarden-cli
     keepass kpcli rclone
     #developes
-    qt5Full
+    #qt5Full #broken in 20.09?
     gnome2.gtk postgresql sqlite
     postgresql11Packages.postgis pgloader
     pgadmin pgmodeler qgis gdal pgmanage
@@ -104,7 +103,6 @@ in
       proggyfonts
     ];
     fontconfig = {
-      penultimate.enable = false;
       defaultFonts = {
         monospace = [ "Source Code Pro" ];
         sansSerif = [ "Source Sans Pro" ];

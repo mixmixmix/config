@@ -87,7 +87,6 @@ programs.zsh.enable = true;
 	};
  };
 
-services.nixosManual.showManual = true;
 nixpkgs.config.allowUnfree = true;
 
 
