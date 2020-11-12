@@ -490,6 +490,7 @@ before packages are loaded."
   (setq compilation-ask-about-save nil)
   (setq org-agenda-files (list "~/repos/organutan"))
   (setq clojure-enable-fancify-symbols t)
+  (add-hook 'buffer-list-update-hook 'spacemacs/toggle-auto-completion-off)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
