@@ -33,6 +33,7 @@ programs.zsh.enable = true;
   };
     i18n.defaultLocale = "en_GB.UTF-8";
 
+  services.mullvad-vpn.enable = true;
   # Set your time zone.
   # time.timeZone = "Europe/Warsaw";
   #time.timeZone = "Europe/London";
@@ -105,11 +106,12 @@ programs.zsh.interactiveShellInit = ''
   plugins=(git vi-mode)
 
   source $ZSH/oh-my-zsh.sh
-  alias euclid35="ssh -X 2412135k@euclid-35.maths.gla.ac.uk"
   alias dragon="~/repos/config/dragon.sh"
   alias discord="discord"
-  alias weasel="ssh mix@217.169.28.186 -p 303"
-  alias platypus="ssh mix@217.169.28.186 -p 2244"
+  #use SSH config instead of aliases
+  #alias euclid35="ssh -X 2412135k@euclid-35.maths.gla.ac.uk"
+  #alias weasel="ssh mix@217.169.28.186 -p 303"
+  #alias platypus="ssh mix@217.169.28.186 -p 2244"
 '';
 
 programs.zsh.promptInit = ""; # Clear this to avoid a conflict with oh-my-zsh
