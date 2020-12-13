@@ -1,0 +1,21 @@
+Host maths
+     Hostname ssh.maths.gla.ac.uk
+     User 2412135k
+
+Host weasel
+     Hostname 217.169.28.186
+     User mix
+     Port 303
+
+Host platypus
+     Hostname 217.169.28.186
+     User mix
+     Port 2244
+
+Host cst-live-server
+     Hostname 119.40.87.26
+     User mix
+
+Host gaur
+     Hostname 35.247.175.5
+     User root
