@@ -19,3 +19,67 @@ Host cst-live-server
 Host gaur
      Hostname 35.247.175.5
      User root
+
+HostName 52.212.3.102
+    User ubuntu
+    ServerAliveInterval 10
+    IdentityFile ~/.ssh/deploy-server.pem
+    
+Host mhs-deploy
+    HostName 52.31.99.129
+    User ubuntu
+    IdentityFile ~/.ssh/deploy-server.pem
+    
+Host mhs-nginx
+    HostName 52.30.118.49
+    User ubuntu
+    IdentityFile ~/.ssh/master_nginx.pem
+    
+Host aggregate_demo
+    HostName 52.51.101.102
+    User ops
+    IdentityFile ~/.ssh/aggregate_demo.pem
+    
+Host old_mad
+    HostName ec2-52-51-140-175.eu-west-1.compute.amazonaws.com
+    User ec2-user
+    IdentityFile ~/.ssh/aggregate_madagascar.pem
+    
+Host new_mad
+    HostName 63.33.179.132
+    User ubuntu
+    
+Host alpha
+    Hostname 192.168.1.100
+    Port 51
+    HostKeyAlias alpha
+    User pi
+    
+Host euclid35
+    Hostname euclid-35.maths.gla.ac.uk
+    HostKeyAlias euclid35
+    User 2412135k
+    
+Host maths
+    Hostname ssh.maths-stats.gla.ac.uk
+    HostKeyAlias maths
+    User 2412135k
+     
+Host gamma
+    Hostname 192.168.1.100
+    Port 53
+    HostKeyAlias gamma
+    User pi
+    
+Host beta
+    Hostname 192.168.1.100
+    Port 52
+    HostKeyAlias beta
+    User pi
+    
+    
+Host delta
+    Hostname 192.168.1.100
+    Port 54
+    HostKeyAlias delta
+    User pi
