@@ -21,7 +21,7 @@ in
     #photo, audio, video
     feh vlc mplayer ffmpeg clipgrab audacity youtube-dl
     imagej darktable shotwell  cinelerra shotcut jbidwatcher
-    mullvad-vpn pinentry softether
+    mullvad-vpn pinentry softether kazam
     #openshot-qt #apparently broken in 20.03
     #paintlike
     mtpaint
@@ -144,10 +144,5 @@ in
     '';
     };
 
-  services.gnome3.gnome-keyring.enable = true;
-  networking.extraHosts =
-  ''
-    127.0.0.1 localhost
-  '';
 
 }
