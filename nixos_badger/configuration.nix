@@ -10,7 +10,7 @@
       ./hardware-configuration.nix
       ./pythonix.nix
       ./common_mixpacks.nix
-#      ./spacemacs.nix
+      ./common_configuration.nix
     ];
 
   # Use the GRUB 2 boot loader.
@@ -24,8 +24,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.resumeDevice = "/dev/nvme0n1p1";
-  # TODO implement better energy saving ?
-  #boot.extraModulePackages = with config.boot.kernelPackages;[acpi-call tp-smapi];
 
   networking.hostName = "badger"; # Define your hostname.
   networking.networkmanager.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -37,13 +35,6 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Select internationalisation properties.
-  console = {
-    font = "Lat2-Terminus16";
-    keyMap = "uk";
-  };
-    i18n.defaultLocale = "en_GB.UTF-8";
 
   # Set your time zone.
   time.timeZone = "Europe/London";
@@ -62,82 +53,11 @@
   hardware.nvidia.optimus_prime.intelBusId = "PCI:0:2:0";
   hardware.opengl.enable = true;
 
-
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [ 22 17500 ];
-    allowedUDPPorts = [ 17500 ];
-  };
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
-  # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
-
-  virtualisation.docker.enable = true;
-
-  services.xserver = {
-  		enable = true;
-  		layout = "gb";
-  		xkbOptions = "caps:escape, ctrl:swap_lalt_lctl, ctrl:swap_ralt_rctl";
-  		displayManager.lightdm.enable = true;
-      videoDrivers = ["nvidia"];
-      displayManager.defaultSession = "xfce+xmonad";
-  # Enable touchpad support.
-		libinput.enable = true;
-		desktopManager = {
-		xterm.enable = true;
-		xfce = {
-			enable = true;
-			noDesktop = true;
-			enableXfwm = false;
-			};
-		gnome3.enable = true;
-		plasma5.enable = false; # for now due to https://github.com/NixOS/nixpkgs/issues/75867, error: The option `programs.ssh.askPassword' has conflicting definitions, in `/nix/var/nix/profiles/per-user/root/channels/nixos/nixos/modules/services/x11/desktop-managers/plasma5.nix' and `/nix/var/nix/profiles/per-user/root/channels/nixos/nixos/modules/programs/seahorse.nix'.
-
-		};
-
-  windowManager = {
-	xmonad = { 
-		enable = true;
-		enableContribAndExtras = true;
-	#	borderWidth = 3; TODO!
-		extraPackages = haskellPackages : [
-			haskellPackages.xmonad-contrib
-			haskellPackages.xmonad-extras
-			haskellPackages.xmonad-wallpaper
-			haskellPackages.xmonad
-            		haskellPackages.ghc
-            		haskellPackages.xmobar
-            		haskellPackages.xmonad
-		];
-  		};
-	};
- };
-
-	programs.zsh.enable = true;
-  #
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.mix = {
-    isNormalUser = true;
-    shell = pkgs.zsh;
-    extraGroups = [ "wheel" "sudo" "networkmanager" "docker"]; # Enable ‘sudo’ for the user.
-  };
-
-  # This value determines the NixOS release with which your system is to be
-  # compatible, in order to avoid breaking some software such as database
-  # servers. You should change this only after NixOS release notes say you
-  # should.
-  system.stateVersion = "20.03"; # Did you read the comment?
-
   # Enable cron service
   services.cron = {
     enable = true;
     systemCronJobs = [
       "*/1 * * * *     mix    . /etc/profile; /home/mix/repos/organutan/pushme_badger.sh >> /home/mix/repos/organutan/autopush.log"
-      "*/5 * * * *      root    date >> /tmp/cron.log"
     ];
   };
 
@@ -146,25 +66,7 @@
     }
   ];
 
-services.nixosManual.showManual = true;
-nixpkgs.config.allowUnfree = true; 
-
-programs.zsh.interactiveShellInit = ''
-  export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh/
-
-  # Customize your oh-my-zsh options here
-  ZSH_THEME="bureau"
-  SAVEHIST=10000
-  HISTSIZE=10000
-  plugins=(git vi-mode)
-
-  source $ZSH/oh-my-zsh.sh
-  alias euclid35="ssh -X 2412135k@euclid-35.maths.gla.ac.uk"
-alias dragon="~/repos/config/dragon.sh"
-
-'';
-
-programs.zsh.promptInit = ""; # Clear this to avoid a conflict with oh-my-zsh
+nixpkgs.config.allowUnfree = true;
 
 hardware.opengl.driSupport32Bit = true;
 hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
