@@ -48,9 +48,10 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  hardware.nvidia.optimus_prime.enable = true;
-  hardware.nvidia.optimus_prime.nvidiaBusId = "PCI:1:0:0";
-  hardware.nvidia.optimus_prime.intelBusId = "PCI:0:2:0";
+  services.xserver.videoDrivers = [ "nvidia" ];
+  #hardware.nvidia.optimus_prime.enable = true;
+  #hardware.nvidia.optimus_prime.nvidiaBusId = "PCI:1:0:0";
+  #hardware.nvidia.optimus_prime.intelBusId = "PCI:0:2:0";
   hardware.opengl.enable = true;
 
   # Enable cron service

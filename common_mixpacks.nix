@@ -41,6 +41,7 @@ in
     keepass kpcli rclone
     #developes
     #qt5Full #broken in 20.09?
+    xfce.xfce4-pulseaudio-plugin
     gnome2.gtk postgresql sqlite
     postgresql11Packages.postgis pgloader
     pgadmin pgmodeler qgis gdal pgmanage
