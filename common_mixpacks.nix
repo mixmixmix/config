@@ -46,6 +46,7 @@ in
     xfce.xfce4-pulseaudio-plugin
     gnome2.gtk postgresql sqlite
     postgresql11Packages.postgis pgloader
+    dbeaver
     pgadmin pgmodeler qgis gdal pgmanage
     mysql-workbench
     #haskell
