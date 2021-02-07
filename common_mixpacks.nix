@@ -34,8 +34,10 @@ in
     fortune cowsay lolcat autofs5 afuse file
     pciutils ncat#lspci
     chrony gparted ntfs3g unrar unp zip
+    gnumake
     #file sync
     #dropbox dropbox-cli
+    qbittorrent
     calibre
     bitwarden bitwarden-cli
     keepass kpcli rclone
@@ -77,7 +79,6 @@ in
     #Games
     openttd openra
     zerotierone
-    steam steam-run
     #web fun
     chromium #it keeps appearing instead of firefox in thunderbird links. Till I can fix it, it is out.
     #science
@@ -114,7 +115,7 @@ in
        nixpkgs.config.permittedInsecurePackages = [
          "openssl-1.0.2u"
        ];
-
+  programs.steam.enable = true;
   services.mysql = {
     enable = true;
     package = pkgs.mysql;
