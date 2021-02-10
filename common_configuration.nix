@@ -19,7 +19,7 @@ programs.zsh.enable = true;
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "20.03"; # Did you read the comment?
+  system.stateVersion = "20.09"; # Did you read the comment?
 
   # DNS issue in firefox: https://github.com/NixOS/nixpkgs/issues/63754
   networking.resolvconf.dnsExtensionMechanism = false;
@@ -126,21 +126,6 @@ services.gnome3.gnome-keyring.enable = true;
 networking.extraHosts =
 ''
   127.0.0.1 localhost
-  52.149.246.39 www.theguardian.com
-  52.149.246.39 theguardian.com
-  52.149.246.39 news.bbc.co.uk
-  52.149.246.39 www.bbc.co.uk
-  52.149.246.39 www.foxnews.com
-  52.149.246.39 arstechnica.com
-  52.149.246.39 slashdot.org
-  52.149.246.39 aljazeera.com
-  52.149.246.39 edition.cnn.com
-  52.149.246.39 cnn.com
-  52.149.246.39 news.sky.com
-  52.149.246.39 www.onet.pl
-  52.149.246.39 onet.pl
-  52.149.246.39 9to5mac.com
-
 '';
 
 

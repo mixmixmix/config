@@ -2,6 +2,7 @@ import XMonad
 import XMonad.Wallpaper
 import XMonad.Config.Xfce
 import XMonad.Hooks.DynamicLog
+import XMonad.Layout.NoBorders
 
 
 --  setrandomwallpaper ["$home/photo/wall"]
@@ -11,9 +12,10 @@ import XMonad.Hooks.EwmhDesktops
 
 myConfig = def
   { terminal    = "xfce4-terminal" -- for Mod + Shift + Enter
-  , borderWidth = 1
+  , borderWidth = 3
   , handleEventHook    = fullscreenEventHook
   , modMask = mod4Mask
+  , layoutHook = smartBorders $ layoutHook defaultConfig
   }
 
 -- main = xmonad =<< xmobar myConfig
