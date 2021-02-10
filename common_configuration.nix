@@ -1,5 +1,10 @@
 { config, pkgs, ... }:
 {
+programs.gnupg.agent = {
+  enable = true;
+  enableSSHSupport = true;
+  pinentryFlavor = "curses";
+};
 
 programs.zsh.enable = true;
   #
