@@ -64,6 +64,7 @@ in
     #system management
     baobab #disk utility analyser
     #geeky:
+    vulkan-tools
     cmatrix
     monero monero-gui electrum
     openvpn
