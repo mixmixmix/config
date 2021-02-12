@@ -30,7 +30,7 @@ in
     tuxpaint
     #linux basic
     xterm xclip tmux git htop ytop vim wget ranger powertop pmutils
-    oh-my-zsh usbutils mc irssi sl exfat-utils 	gnupg archiver 	bzip2 unzip 	chrony pmutils 	geteltorito 	colordiff 	arp-scan direnv
+    oh-my-zsh usbutils mc irssi sl exfat-utils 	archiver 	bzip2 unzip 	chrony pmutils 	geteltorito 	colordiff 	arp-scan direnv
     fortune cowsay lolcat autofs5 afuse file
     pciutils ncat#lspci
     chrony gparted ntfs3g unrar unp zip
@@ -48,7 +48,7 @@ in
     postgresql11Packages.postgis pgloader
     dbeaver
     pgadmin pgmodeler qgis gdal pgmanage
-    mysql-workbench
+    mysql-workbench dbeaver
     #haskell
     hsEnv
     #FJELLTOPP
