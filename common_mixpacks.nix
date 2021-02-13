@@ -15,7 +15,7 @@ in
   environment.systemPackages = with pkgs; [
     #key apps
     slack firefox networkmanager zsh discord evince	libreoffice	blender tdesktop signal-desktop
-    mailspring #mailspring is introduced to 20.09 stable
+    mailspring thunderbird
     touchegg
     teams
     #photo, audio, video
