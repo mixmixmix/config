@@ -11,6 +11,8 @@ cp ~/.ssh/config ~/.ssh/sshconf.old
 cp ~/.ssh/config sshconf.old
 cp sshconf ~/.ssh/config
 cp spacemacs ~/.spacemacs
+cp xmonad.hs ~/.xmonad/xmonad.hs
+xmonad --recompile
 cd nixos_${HOST}
 sudo cp configuration.nix /etc/nixos/
 echo "Configuration files copied!"
