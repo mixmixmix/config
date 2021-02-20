@@ -15,13 +15,14 @@ in
   environment.systemPackages = with pkgs; [
     #key apps
     slack firefox networkmanager zsh discord evince	libreoffice	blender tdesktop signal-desktop
-    mailspring #mailspring is introduced to 20.09 stable
+    mailspring thunderbird
     touchegg
     teams
     #photo, audio, video
     feh vlc mplayer ffmpeg clipgrab audacity youtube-dl
     imagej darktable shotwell  cinelerra shotcut jbidwatcher
-    mullvad-vpn pinentry softether kazam
+    mullvad-vpn pinentry softether kazam 
+    busybox #adduser 
     #openshot-qt #apparently broken in 20.03
     #paintlike
     mtpaint
