@@ -58,8 +58,8 @@
 
   # Set your time zone.
  # time.timeZone = "Asia/Kolkata";
- # time.timeZone = "Europe/London";
-  time.timeZone = "Asia/Dhaka";
+  time.timeZone = "Europe/London";
+  #time.timeZone = "Asia/Dhaka";
 
   services.redshift = {
     enable = true;
