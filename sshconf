@@ -66,14 +66,14 @@ Host maths
     User 2412135k
      
 Host gamma
-    Hostname 192.168.1.100
-    Port 53
+    Hostname 192.168.1.116
+    Port 22
     HostKeyAlias gamma
     User pi
     
 Host beta
-    Hostname 192.168.1.100
-    Port 52
+    Hostname 192.168.1.117
+    Port 22
     HostKeyAlias beta
     User pi
     
