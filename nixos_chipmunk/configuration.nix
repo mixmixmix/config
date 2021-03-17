@@ -7,6 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
+      <nixos-hardware/lenovo/thinkpad/t460s>
       ./hardware-configuration.nix
       ./pythonix.nix
       ./common_mixpacks.nix
@@ -21,26 +22,27 @@
   powerManagement.enable = true;
   powerManagement.powertop.enable = true;
 
-  boot.initrd.kernelModules = ["i915" "acpi" "thinkpad-acpi" "acpi-call" "tp-smapi" "cpufreq_stats"];
 
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  #NIXOS-HARDWARE in USE
+  #most likely unnecessary since using nixos-hardware repo
+  #boot.initrd.kernelModules = ["i915" "acpi" "thinkpad-acpi" "acpi-call" "tp-smapi" "cpufreq_stats"];
+  #hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  # hardware.opengl.extraPackages = with pkgs; [
+  #   vaapiIntel
+  #   vaapiVdpau
+  #   libvdpau-va-gl
+  #   intel-media-driver
+  # ];
 
-  hardware.opengl.extraPackages = with pkgs; [
-    vaapiIntel
-    vaapiVdpau
-    libvdpau-va-gl
-    intel-media-driver
-  ];
-
-  boot = {
-    kernelModules = [ "acpi_call" "coretemp" "cpuid" ];
-    extraModulePackages = with config.boot.kernelPackages; [ acpi_call tp_smapi];
-  };
+  # boot = {
+  #   kernelModules = [ "acpi_call" "coretemp" "cpuid" ];
+  #   extraModulePackages = with config.boot.kernelPackages; [ acpi_call tp_smapi];
+  # };
 
 
   # networking
   networking.useDHCP = false;
-  networking.interfaces.enp0s31f6.useDHCP = false;
+  networking.interfaces.enp0s31f6.useDHCP = true;
   networking.interfaces.wlp4s0.useDHCP = true;
 
   # Use the GRUB 2 boot loader.
@@ -87,6 +89,6 @@
     }
   ];
 
-hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
+ hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
 }
 
