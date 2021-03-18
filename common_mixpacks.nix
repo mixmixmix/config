@@ -59,6 +59,7 @@ in
     awscli #python2
     #dev etc:
     conda glib emacs exiftool rstudio octaveFull gcc molly-guard pmutils vscode-with-extensions wmname nix-index unar
+    opencv
     #networking
     mtr fish tlp nox
     bind #for package dig

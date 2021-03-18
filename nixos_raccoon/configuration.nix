@@ -7,6 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
+      <nixos-hardware/lenovo/thinkpad/x220>
       ./hardware-configuration.nix
       ./pythonix.nix
       ./common_mixpacks.nix
@@ -18,16 +19,21 @@
   #powerManagement.cpuFreqGovernor = null; # will be managed by tlp
   #https://gist.github.com/fikovnik/f9d5283689d663d162d79c061774f79b
   #https://bbs.archlinux.org/viewtopic.php?pid=1030190#p1030190
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.kernelParams = [
-    "pcie.aspm=force"
-    "i915.enable_fbc=1"
-    "i915.enable_rc6=7"
-    "i915.lvds_downclock=1"
-    "i915.enable_guc_loading=1"
-    "i915.enable_guc_submission=1"
-    "i915.enable_psr=0"
-  ];
+
+  #NIXOS-HARDWARE in USE
+  #most likely unnecessary since using nixos-hardware repo
+  # boot.kernelModules = [ "kvm-intel" ];
+  # boot.kernelParams = [
+  #   "pcie.aspm=force"
+  #   "i915.enable_fbc=1"
+  #   "i915.enable_rc6=7"
+  #   "i915.lvds_downclock=1"
+  #   "i915.enable_guc_loading=1"
+  #   "i915.enable_guc_submission=1"
+  #   "i915.enable_psr=0"
+  # ];
+
+
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
@@ -37,10 +43,12 @@
   # Define on which hard drive you want to install Grub.
   boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
   boot.resumeDevice = "/dev/sda2";
-  # TODO implement better energy saving ?
+
+  #NIXOS-HARDWARE in USE
+  #most likely unnecessary since using nixos-hardware repo
   #boot.extraModulePackages = with config.boot.kernelPackages;[acpi-call tp-smapi];
-  boot.initrd.kernelModules = ["acpi" "thinkpad-acpi" "acpi-call" "tp-smapi" "cpufreq_stats"];
-  boot.extraModulePackages = with config.boot.kernelPackages; [ acpi_call tp_smapi];
+  #boot.initrd.kernelModules = ["acpi" "thinkpad-acpi" "acpi-call" "tp-smapi" "cpufreq_stats"];
+  #boot.extraModulePackages = with config.boot.kernelPackages; [ acpi_call tp_smapi];
 
   networking.hostName = "raccoon"; # Define your hostname.
   networking.networkmanager.enable = true;  # Enables wireless support via wpa_supplicant.
