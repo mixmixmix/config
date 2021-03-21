@@ -10,6 +10,7 @@ cp ~/.spacemacs spacemacs.old
 cp ~/.ssh/config ~/.ssh/sshconf.old
 cp ~/.ssh/config sshconf.old
 cp sshconf ~/.ssh/config
+cp tmux.conf ~/.tmux.conf
 cp spacemacs ~/.spacemacs
 cp xmonad.hs ~/.xmonad/xmonad.hs
 xmonad --recompile

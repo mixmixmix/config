@@ -113,10 +113,12 @@ programs.zsh.interactiveShellInit = ''
   source $ZSH/oh-my-zsh.sh
   alias dragon="~/repos/config/dragon.sh"
   alias discord="discord"
+  alias discord="Discord"
   #use SSH config instead of aliases
   #alias euclid35="ssh -X 2412135k@euclid-35.maths.gla.ac.uk"
   #alias weasel="ssh mix@217.169.28.186 -p 303"
   #alias platypus="ssh mix@217.169.28.186 -p 2244"
+  alias tmux="tmux attach"
 '';
 
 programs.zsh.promptInit = ""; # Clear this to avoid a conflict with oh-my-zsh
