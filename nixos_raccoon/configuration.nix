@@ -52,6 +52,7 @@
 
   networking.hostName = "raccoon"; # Define your hostname.
   networking.networkmanager.enable = true;  # Enables wireless support via wpa_supplicant.
+  services.chrony.enable = true; #possibly should be moved to common
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
