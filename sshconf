@@ -50,8 +50,8 @@ Host new_mad
     User ubuntu
     
 Host alpha
-    Hostname 192.168.1.100
-    Port 51
+    Hostname 192.168.1.53
+    Port 22
     HostKeyAlias alpha
     User pi
     
@@ -66,13 +66,13 @@ Host maths
     User 2412135k
      
 Host gamma
-    Hostname 192.168.1.116
+    Hostname 192.168.1.32	
     Port 22
     HostKeyAlias gamma
     User pi
     
 Host beta
-    Hostname 192.168.1.117
+    Hostname 192.168.1.33
     Port 22
     HostKeyAlias beta
     User pi
