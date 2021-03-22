@@ -4,8 +4,12 @@ let python =
     packageOverrides = self:
     super: {
       opencv4 = super.opencv4.overrideAttrs (old: rec {
-        enableGtk2 = pkgs.gnome2.gtk ; # pkgs.gtk2-x11 # pkgs.gnome2.gtk;
-        # doCheck = false;
+        enableGtk2 = pkgs.gtk2;
+        enableGtk3 = pkgs.gtk3;
+        enableVtk = pkgs.vtk;
+        enableFfmpeg = pkgs.ffmpeg-full;
+        # enableGtk3 = pkgs.gtk3;
+        # doCheck = true;
         });
     };
     in
