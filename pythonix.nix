@@ -1,37 +1,39 @@
 { config, pkgs, ... }:
-let
-  python3-with-my-packages =
-    pkgs.python3.withPackages (python-packages: with python-packages; [
-      numpy
-      notebook
-      jupyterlab
-      pandas
-      matplotlib
-      scipy
-      scikitlearn
-      scikitimage
-      #tensorflow
-      flask
-      bokeh
-      seaborn
-      shapely
-      folium
-      statsmodels
-      yapf
-      xlrd
-      pyproj #map projections
-      python-dotenv
-      opencv4
-    ]);
-  python2-with-my-packages =
-    pkgs.python27.withPackages (python-packages: with python-packages; [
-      pip
-      passlib
-    ]);
+let python =
+    let
+    packageOverrides = self:
+    super: {
+      opencv4 = super.opencv4.overrideAttrs (old: rec {
+        enableGtk2 = pkgs.gnome2.gtk ; # pkgs.gtk2-x11 # pkgs.gnome2.gtk;
+        # doCheck = false;
+        });
+    };
+    in
+      pkgs.python3.override {inherit packageOverrides; self = python;};
 in
 {
-  environment.systemPackages = with pkgs; [
-    python3-with-my-packages
-    python2-with-my-packages
-  ];
+environment.systemPackages = with pkgs; [
+  (python.withPackages(ps: with ps; [
+    opencv4
+    numpy
+    notebook
+    jupyterlab
+    pandas
+    matplotlib
+    scipy
+    scikitlearn
+    scikitimage
+    #tensorflow
+    flask
+    bokeh
+    seaborn
+    shapely
+    folium
+    statsmodels
+    yapf
+    xlrd
+    pyproj #map projections
+    python-dotenv
+  ]))
+];
 }
