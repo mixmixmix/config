@@ -89,6 +89,7 @@
     }
   ];
 
+ programs.steam.enable = true; #temporarily using from usntable
  hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
 }
 

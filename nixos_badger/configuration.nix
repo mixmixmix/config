@@ -4,6 +4,9 @@
 
 { config, pkgs, ... }:
 
+  let
+    unstable = import <nixos-unstable> {config = { allowUnfree = true; };};
+  in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -53,6 +56,13 @@
   #hardware.nvidia.optimus_prime.nvidiaBusId = "PCI:1:0:0";
   #hardware.nvidia.optimus_prime.intelBusId = "PCI:0:2:0";
   hardware.opengl.enable = true;
+
+
+  # programs.steam.enable = true; #temporarily using from usntable
+    environment.systemPackages = with pkgs; [
+      unstable.steam
+    ];
+
 
   # Enable cron service
   services.cron = {

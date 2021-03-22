@@ -19,7 +19,7 @@ in
     touchegg
     teams
     #photo, audio, video
-    feh vlc mplayer ffmpeg clipgrab audacity youtube-dl
+    feh vlc mplayer ffmpeg-full clipgrab audacity youtube-dl
     imagej darktable shotwell  cinelerra shotcut jbidwatcher
     mullvad-vpn pinentry softether kazam 
     busybox #adduser 
@@ -43,13 +43,15 @@ in
     bitwarden bitwarden-cli
     keepass kpcli rclone
     #developes
-    #qt5Full #broken in 20.09?
+    # qt5Full #broken in 20.09?
     xfce.xfce4-pulseaudio-plugin
     gnome2.gtk postgresql sqlite
     postgresql11Packages.postgis pgloader
     dbeaver
     pgadmin pgmodeler qgis gdal pgmanage
     mysql-workbench dbeaver
+    gtk2-x11
+    pkg-config
     #haskell
     hsEnv
     #FJELLTOPP
@@ -119,7 +121,8 @@ in
        nixpkgs.config.permittedInsecurePackages = [
          "openssl-1.0.2u"
        ];
-  programs.steam.enable = true;
+
+
   services.mysql = {
     enable = true;
     package = pkgs.mysql;
