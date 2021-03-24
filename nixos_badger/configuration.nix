@@ -58,10 +58,10 @@
   hardware.opengl.enable = true;
 
 
-  # programs.steam.enable = true; #temporarily using from usntable
-    environment.systemPackages = with pkgs; [
-      unstable.steam
-    ];
+    programs.steam.enable = true; #temporarily using from usntable
+    # environment.systempackages = with pkgs; [
+    #   unstable.steam
+    # ];
 
 
   # Enable cron service

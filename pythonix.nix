@@ -3,14 +3,18 @@ let python =
     let
     packageOverrides = self:
     super: {
-      opencv4 = super.opencv4.overrideAttrs (old: rec {
-        enableGtk2 = pkgs.gtk2;
-        enableGtk3 = pkgs.gtk3;
-        enableVtk = pkgs.vtk;
-        enableFfmpeg = pkgs.ffmpeg-full;
+      opencv4 = super.opencv4.override {
+        enableGtk2 = true;
+        gtk2 = pkgs.gtk2;
+        # enableGtk3 = true
+        # gtk3 = pkgs.gtk3;
+        enableVtk = true;
+        vtk = pkgs.vtk;
+        enableFfmpeg = true;
+        ffmpeg_3 = pkgs.ffmpeg-full;
         # enableGtk3 = pkgs.gtk3;
         # doCheck = true;
-        });
+        };
     };
     in
       pkgs.python3.override {inherit packageOverrides; self = python;};
