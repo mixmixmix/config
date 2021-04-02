@@ -50,6 +50,7 @@
   #boot.initrd.kernelModules = ["acpi" "thinkpad-acpi" "acpi-call" "tp-smapi" "cpufreq_stats"];
   #boot.extraModulePackages = with config.boot.kernelPackages; [ acpi_call tp_smapi];
 
+  boot.extraModulePackages = with config.boot.kernelPackages;[ rtl88x2bu ];
   networking.hostName = "raccoon"; # Define your hostname.
   networking.networkmanager.enable = true;  # Enables wireless support via wpa_supplicant.
   services.chrony.enable = true; #possibly should be moved to common

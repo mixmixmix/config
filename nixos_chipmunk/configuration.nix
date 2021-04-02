@@ -4,6 +4,7 @@
 
 { config, lib, pkgs, ... }:
 
+
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -57,7 +58,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.resumeDevice = "/dev/sda1";
   # TODO implement better energy saving ?
-  #boot.extraModulePackages = with config.boot.kernelPackages;[acpi-call tp-smapi];
+  boot.extraModulePackages = with config.boot.kernelPackages;[ rtl88x2bu ];
 
   networking.hostName = "chipmunk"; # Define your hostname.
   networking.networkmanager.enable = true;  # Enables wireless support via wpa_supplicant.
