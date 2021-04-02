@@ -28,6 +28,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.resumeDevice = "/dev/nvme0n1p1";
 
+  boot.extraModulePackages = with config.boot.kernelPackages;[ rtl88x2bu ];
   networking.hostName = "badger"; # Define your hostname.
   networking.networkmanager.enable = true;  # Enables wireless support via wpa_supplicant.
   services.chrony.enable = true;
