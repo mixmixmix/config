@@ -43,8 +43,6 @@ programs.zsh.enable = true;
   # time.timeZone = "Europe/Warsaw";
   #time.timeZone = "Europe/London";
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
   #disable bluetooth. doens't work. I still need to sudo rfkill block bluetooth
   hardware.bluetooth.enable = false;
   boot.blacklistedKernelModules = ["bluetooth" "btusb"];

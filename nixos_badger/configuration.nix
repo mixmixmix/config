@@ -58,6 +58,9 @@
   #hardware.nvidia.optimus_prime.intelBusId = "PCI:0:2:0";
   hardware.opengl.enable = true;
 
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
+  services.printing.drivers = with pkgs; [ cnijfilter ];
 
     #programs.steam.enable = true; #temporarily using from usntable
     environment.systemPackages = with pkgs; [
