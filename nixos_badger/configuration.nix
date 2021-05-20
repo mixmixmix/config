@@ -60,12 +60,22 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  services.printing.drivers = with pkgs; [ cnijfilter ];
+  services.printing.drivers = with pkgs; [ cnijfilter_4_00 ];
 
     #programs.steam.enable = true; #temporarily using from usntable
     environment.systemPackages = with pkgs; [
       unstable.steam
+      cudatoolkit
+      linuxPackages.nvidia_x11
+      blender
     ];
+
+    nixpkgs.config.packageOverrides = pkgs: {
+      blender = pkgs.blender.override {
+        cudaSupport = true;
+        cudatoolkit = pkgs.cudatoolkit;
+      };
+    };
 
 
   # Enable cron service

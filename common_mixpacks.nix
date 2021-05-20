@@ -14,7 +14,7 @@ in
 {
   environment.systemPackages = with pkgs; [
     #key apps
-    slack firefox networkmanager zsh discord evince	libreoffice	blender tdesktop signal-desktop
+    slack firefox networkmanager zsh discord evince	libreoffice	tdesktop signal-desktop
     mailspring thunderbird
     touchegg screenfetch
     teams
@@ -22,13 +22,10 @@ in
     feh vlc mplayer ffmpeg-full clipgrab audacity youtube-dl
     imagej darktable shotwell  cinelerra shotcut jbidwatcher
     mullvad-vpn pinentry softether kazam 
-    busybox #adduser 
+    busybox spotify spotifyd
     #openshot-qt #apparently broken in 20.03
     #paintlike
-    mtpaint
-    mypaint
-    pinta
-    tuxpaint
+    mtpaint mypaint pinta tuxpaint
     #linux basic
     xterm xclip tmux git htop ytop vim wget ranger powertop pmutils
     oh-my-zsh usbutils mc irssi sl exfat-utils 	archiver 	bzip2 unzip 	chrony pmutils 	geteltorito 	colordiff 	arp-scan direnv
@@ -41,7 +38,7 @@ in
     qbittorrent
     calibre
     bitwarden bitwarden-cli
-    keepass kpcli rclone
+    keepass kpcli rclone gnome3.simple-scan
     #developes
     # qt5Full #broken in 20.09?
     xfce.xfce4-pulseaudio-plugin
@@ -52,6 +49,7 @@ in
     mysql-workbench dbeaver
     gtk2-x11
     pkg-config
+    ispell
     #haskell
     hsEnv
     #FJELLTOPP
