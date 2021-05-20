@@ -16,7 +16,7 @@ in
     #key apps
     slack firefox networkmanager zsh discord evince	libreoffice	blender tdesktop signal-desktop
     mailspring thunderbird
-    touchegg
+    touchegg screenfetch
     teams
     #photo, audio, video
     feh vlc mplayer ffmpeg-full clipgrab audacity youtube-dl
