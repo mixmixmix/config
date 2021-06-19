@@ -21,7 +21,7 @@ in
     #photo, audio, video
     feh vlc mplayer ffmpeg-full clipgrab audacity youtube-dl
     imagej darktable shotwell  cinelerra shotcut jbidwatcher
-    mullvad-vpn pinentry softether kazam 
+    mullvad-vpn pinentry softether kazam gimp
     busybox spotify spotifyd
     #openshot-qt #apparently broken in 20.03
     #paintlike
