@@ -138,10 +138,13 @@ networking.extraHosts =
   0.0.0.0 www.bbc.co.uk
   0.0.0.0 bbc.co.uk
   0.0.0.0 slashdot.org
+  0.0.0.0 www.slashdot.org
   0.0.0.0 9to5mac.com
+  0.0.0.0 www.9to5mac.com
   0.0.0.0 www.onet.pl
   0.0.0.0 onet.pl
   0.0.0.0 www.travellingtabby.com
+  0.0.0.0 travellingtabby.com
   0.0.0.0 www.telegraph.co.uk
   0.0.0.0 telegraph.co.uk
 '';
