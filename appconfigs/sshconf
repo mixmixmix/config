@@ -7,7 +7,7 @@ Host weasel
      User mix
      Port 303
 
-Host platypus
+Host nutria
      Hostname 217.169.28.186
      User mix
      Port 2244
