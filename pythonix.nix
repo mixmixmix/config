@@ -33,6 +33,8 @@ environment.systemPackages = with pkgs; [
     scikitimage
     #tensorflow
     flask
+    flask-appbuilder
+    email_validator
     bokeh
     seaborn
     shapely
