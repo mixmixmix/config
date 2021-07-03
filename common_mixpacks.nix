@@ -43,7 +43,7 @@ in
     # qt5Full #broken in 20.09?
     xfce.xfce4-pulseaudio-plugin
     gnome2.gtk postgresql sqlite
-    postgresql11Packages.postgis pgloader
+    postgresql11Packages.postgis #pgloader
     dbeaver
     pgadmin pgmodeler qgis gdal pgmanage
     mysql-workbench dbeaver
