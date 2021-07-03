@@ -45,7 +45,8 @@ in
     gnome2.gtk postgresql sqlite
     postgresql11Packages.postgis #pgloader
     dbeaver
-    pgadmin pgmodeler qgis gdal pgmanage
+    #pgadmin
+    pgmodeler qgis gdal pgmanage
     mysql-workbench dbeaver
     gtk2-x11
     pkg-config

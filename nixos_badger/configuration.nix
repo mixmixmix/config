@@ -60,7 +60,7 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  services.printing.drivers = with pkgs; [ cnijfilter_4_00 ];
+  # services.printing.drivers = with pkgs; [ cnijfilter_4_00 ];
 
     programs.steam.enable = true; #temporarily using from usntable
     environment.systemPackages = with pkgs; [
