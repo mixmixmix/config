@@ -14,6 +14,7 @@
       ./common_configuration.nix
 #      ./spacemacs.nix
     ];
+
   powerManagement.enable = true;
   powerManagement.powertop.enable = true;
   #powerManagement.cpuFreqGovernor = null; # will be managed by tlp
@@ -90,13 +91,13 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  services.tlp = {
-    enable = true;
-    extraConfig = ''
-      CPU_SCALING_GOVERNOR_ON_BAT=powersave
-      ENERGY_PERF_POLICY_ON_BAT=powersave
-  '';
-  };
+  # services.tlp = {
+  #   enable = true;
+  #   extraConfig = ''
+  #     CPU_SCALING_GOVERNOR_ON_BAT=powersave
+  #     ENERGY_PERF_POLICY_ON_BAT=powersave
+  # '';
+  # };
 
 
   virtualisation.docker.enable = true;
