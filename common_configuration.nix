@@ -62,16 +62,16 @@ programs.zsh.enable = true;
   		displayManager.lightdm.enable = true;
       #videoDrivers = ["nvidia"];
       displayManager.defaultSession = "xfce+xmonad";
-  # Enable touchpad support.
-		libinput.enable = true;
-		desktopManager = {
-		xterm.enable = true;
-		xfce = {
-			enable = true;
-			noDesktop = true;
-			enableXfwm = false;
+      #Enable touchpad support.
+		  libinput.enable = true;
+		  desktopManager = {
+	  	xterm.enable = true;
+		  xfce = {
+        enable = true;
+        noDesktop = true;
+        enableXfwm = false;
 			};
-		gnome3.enable = true;
+		gnome.enable = true;
 		plasma5.enable = false; # for now due to https://github.com/NixOS/nixpkgs/issues/75867, error: The option `programs.ssh.askPassword' has conflicting definitions, in `/nix/var/nix/profiles/per-user/root/channels/nixos/nixos/modules/services/x11/desktop-managers/plasma5.nix' and `/nix/var/nix/profiles/per-user/root/channels/nixos/nixos/modules/programs/seahorse.nix'.
 
 		};
@@ -122,7 +122,7 @@ programs.zsh.interactiveShellInit = ''
 programs.zsh.promptInit = ""; # Clear this to avoid a conflict with oh-my-zsh
 hardware.opengl.driSupport32Bit = true;
 
-services.gnome3.gnome-keyring.enable = true;
+services.gnome.gnome-keyring.enable = true;
 networking.extraHosts =
 ''
   127.0.0.1 localhost

@@ -20,17 +20,17 @@ in
     teams
     #photo, audio, video
     feh vlc mplayer ffmpeg-full clipgrab audacity youtube-dl
-    imagej darktable shotwell  cinelerra shotcut jbidwatcher
+    imagej darktable shotwell  cinelerra shotcut
     mullvad-vpn pinentry softether kazam gimp
     busybox spotify spotifyd
     #openshot-qt #apparently broken in 20.03
     #paintlike
     mtpaint mypaint pinta tuxpaint
     #linux basic
-    xterm xclip tmux git htop ytop vim wget ranger powertop pmutils
+    xterm xclip tmux git htop vim wget ranger powertop pmutils bottom
     oh-my-zsh usbutils mc irssi sl exfat-utils 	archiver 	bzip2 unzip 	chrony pmutils 	geteltorito 	colordiff 	arp-scan direnv
     fortune cowsay lolcat autofs5 afuse file
-    pciutils ncat#lspci
+    pciutils ncat #lspci
     chrony gparted ntfs3g unrar unp zip
     gnumake
     #file sync

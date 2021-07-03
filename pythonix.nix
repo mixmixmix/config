@@ -11,7 +11,7 @@ let python =
         enableVtk = true;
         vtk = pkgs.vtk;
         enableFfmpeg = true;
-        ffmpeg_3 = pkgs.ffmpeg-full;
+        ffmpeg = pkgs.ffmpeg-full;
         # enableGtk3 = pkgs.gtk3;
         # doCheck = true;
         };
