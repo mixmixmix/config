@@ -97,6 +97,8 @@ programs.zsh.enable = true;
 nixpkgs.config.allowUnfree = true;
 
 
+programs.steam.enable = true; 
+
 programs.zsh.interactiveShellInit = ''
   export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh/
 
