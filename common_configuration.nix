@@ -149,6 +149,13 @@ networking.extraHosts =
   0.0.0.0 travellingtabby.com
   0.0.0.0 www.telegraph.co.uk
   0.0.0.0 telegraph.co.uk
+  0.0.0.0 www.aljazeera.com
+  0.0.0.0 aljazeera.com
+  0.0.0.0 aljazeera.com
+  0.0.0.0 www.glasgowtimes.co.uk
+  0.0.0.0 glasgowtimes.co.uk
+  0.0.0.0 heraldscotland.com
+  0.0.0.0 www.heraldscotland.com
 '';
 
 

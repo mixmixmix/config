@@ -16,7 +16,7 @@ cp -R appconfigs/ranger ~/.config/
 cp appconfigs/xmonad.hs ~/.xmonad/xmonad.hs
 xmonad --recompile
 cd nixos_${HOST}
-sudo cp configuration.nix /etc/nixos/
+sudo cp configuration_${HOST}.nix /etc/nixos/
 echo "Configuration files copied!"
 sudo nixos-rebuild switch --show-trace
 echo "Finished!"
