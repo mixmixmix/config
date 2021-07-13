@@ -156,6 +156,8 @@ networking.extraHosts =
   0.0.0.0 glasgowtimes.co.uk
   0.0.0.0 heraldscotland.com
   0.0.0.0 www.heraldscotland.com
+  0.0.0.0 arstechnica.com
+  0.0.0.0 www.arstechnica.com
 '';
 
 

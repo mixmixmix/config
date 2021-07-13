@@ -33,6 +33,7 @@ in
     pciutils ncat #lspci
     chrony gparted ntfs3g unrar unp zip
     gnumake
+    sysbench
     #file sync
     #dropbox dropbox-cli
     qbittorrent
@@ -56,7 +57,6 @@ in
     #FJELLTOPP
     docker
     docker-compose
-    jetbrains.pycharm-professional
     awscli #python2
     #dev etc:
     conda glib emacs exiftool rstudio octaveFull gcc molly-guard pmutils vscode-with-extensions wmname nix-index unar
