@@ -35,7 +35,7 @@ programs.zsh.enable = true;
 
   networking.firewall = {
     enable = false;
-    allowedTCPPorts = [ 22 5321 17500 1401, 443, 80 ];
+    allowedTCPPorts = [ 22 5321 17500 1401 443 80 ];
     allowedUDPPorts = [ 53 1194 1195 1196 1197 1300 1301 1302 1303 1400 ];
   };
 
