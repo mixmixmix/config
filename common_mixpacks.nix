@@ -41,6 +41,7 @@ in
     bitwarden bitwarden-cli
     keepass kpcli rclone gnome3.simple-scan
     #developes
+    hugo
     # qt5Full #broken in 20.09?
     xfce.xfce4-pulseaudio-plugin
     gnome2.gtk postgresql sqlite

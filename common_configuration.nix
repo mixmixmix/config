@@ -25,10 +25,18 @@ programs.zsh.enable = true;
   networking.resolvconf.dnsExtensionMechanism = false;
   networking.nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" "8.8.4.4" ];
 
+
+#From mullvad wiki:
+#Which ports should I open in my firewall for OpenVPN ? #
+#
+#TCP: 80, 443, 1401
+#UDP: 53, 1194, 1195, 1196, 1197, 1300, 1301, 1302, 1303, 1400
+#(Ports 1400 UDP and 1401 TCP do not have DNS hijacking enabled, which might work better for pfSense users)
+
   networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [ 22 5321 17500 ];
-    allowedUDPPorts = [ 17500 ];
+    enable = false;
+    allowedTCPPorts = [ 22 5321 17500 1401, 443, 80 ];
+    allowedUDPPorts = [ 53 1194 1195 1196 1197 1300 1301 1302 1303 1400 ];
   };
 
   # Select internationalisation properties.

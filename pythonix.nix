@@ -44,6 +44,7 @@ environment.systemPackages = with pkgs; [
     xlrd
     pyproj #map projections
     python-dotenv
+    psycopg2
   ]))
 ];
 }
